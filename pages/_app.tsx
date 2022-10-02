@@ -6,23 +6,14 @@ import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider, gql } from '@apo
 import { setContext } from '@apollo/client/link/context';
 
 
-const authLink = setContext((_, { headers }) => {
-  return {
-    headers: {
-      ...headers,
-    },
-  };
-});
 
-const httpLink = new HttpLink({
-  uri: process.env.SPOTIFY_URL
-});
+
 
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: authLink.concat(httpLink),
-  ssrMode: typeof window === 'undefined',
+  uri: 'https://spotify-graphql.shotgun.live/api',
+  // ssrMode: typeof window === 'undefined',
 });
 
 
