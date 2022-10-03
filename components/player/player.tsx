@@ -9,7 +9,6 @@ export const Player = (props): ReactElement => {
     const [tracks, setTracks] = useState(props.tracks);
 
     return <>
-        PLAYER
         <ReactAudioPlayer
             src={tracks[0].track.preview_url}
             autoPlay

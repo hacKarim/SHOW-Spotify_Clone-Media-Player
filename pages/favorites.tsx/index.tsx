@@ -1,18 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import React, { useState } from 'react';
 
-
-
-import styles from '../styles/Home.module.css'
-
+import styles from '../../styles/Home.module.css'
 
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { Playlist } from '../components/playlist/playlist';
-import { Player } from '../components/player/player';
-
 
 // This is a nice way to get only the data needed for the project
 const GET_PLAYLIST = gql`
@@ -56,13 +49,10 @@ const Home: NextPage = () => {
         </Head>
 
         <main className={styles.main}>
-          <Playlist playlist={data.playlist}></Playlist>
-          <Player tracks={data.playlist.tracks}></Player>
-
+            FAVORITES
         </main>
 
         <footer className={styles.footer}>
-        <div>MENU</div>
         </footer>
       </div>
   )
