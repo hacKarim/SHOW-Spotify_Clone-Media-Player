@@ -2,11 +2,8 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
 //Apollo Client
-import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
-
-
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { NextUIProvider } from '@nextui-org/react';
 
 
 
@@ -18,9 +15,12 @@ const client = new ApolloClient({
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (<ApolloProvider client={client}>
-    <Component {...pageProps} />
-  </ApolloProvider>
+  return (
+    <ApolloProvider client={client}>
+      <NextUIProvider>
+        <Component {...pageProps} />
+      </NextUIProvider>
+    </ApolloProvider>
   )
 }
 

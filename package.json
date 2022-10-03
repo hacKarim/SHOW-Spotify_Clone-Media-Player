@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
+    "@nextui-org/react": "^1.0.0-beta.10",
     "cookie": "^0.5.0",
     "graphql": "^16.6.0",
     "lodash": "^4.17.21",

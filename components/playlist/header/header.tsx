@@ -5,6 +5,6 @@ export const PlaylistHeader = (props: any): ReactElement => {
 
 
     return <>
-        <div>HEADER</div>
+        <div>PLAYLIST HEADER</div>
     </>
 }
