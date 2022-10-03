@@ -37,7 +37,7 @@ export const Playlist = (props: any): ReactElement => {
       title: element.track.name,
       artist: element.track.artists[0].name,
       album: element.track.album.name,
-      cover: element.track.album.images[1].url,
+      cover: element.track.album.images[0].url,
       previewUrl: element.track.preview_url,
     };
     return temp;
@@ -52,25 +52,21 @@ export const Playlist = (props: any): ReactElement => {
     switch (columnKey) {
       case "title":
         return (
-          <User squared src={item?.cover} name={cellValue} css={{ p: 0 }}>
-            {item?.cover}
+          <User
+            squared
+            src={item?.cover}
+            css={{
+              p: 0,
+              filter:
+                disabledTracks.indexOf(item?.id) > -1
+                  ? "saturate(0)"
+                  : "saturate(1)",
+            }}
+          >
+            {item?.title}
           </User>
         );
-      case "artist":
-        return (
-          <Col>
-            <Row>
-              <Text b size={14} css={{ tt: "capitalize" }}>
-                {cellValue}
-              </Text>
-            </Row>
-            <Row>
-              <Text b size={13} css={{ tt: "capitalize", color: "$accents7" }}>
-                {item?.artist}
-              </Text>
-            </Row>
-          </Col>
-        );
+
       default:
         return cellValue;
     }
@@ -78,45 +74,6 @@ export const Playlist = (props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-      <Grid.Container gap={2} justify="flex-start">
-        {tracks.map((track, index) => (
-          <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
-            <Card isPressable variant="bordered">
-              <Card.Header
-                css={{
-                  position: "absolute",
-                  bgBlur: "#00000066",
-                  borderTop:
-                    "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-                  zIndex: 1,
-                }}
-              >
-                <Col>
-                  <Text
-                    size={12}
-                    weight="bold"
-                    transform="uppercase"
-                    color="#ffffffAA"
-                  >
-                    {track.artist} - {track.album}
-                  </Text>
-                  <Text h4 color="white">
-                    {track.title}{" "}
-                  </Text>
-                </Col>
-              </Card.Header>
-              <Card.Body css={{ p: 0 }}>
-                <Card.Image
-                  src={track.cover}
-                  objectFit="cover"
-                  width="100%"
-                  alt={track.title}
-                />
-              </Card.Body>
-            </Card>
-          </Grid>
-        ))}
-      </Grid.Container>
       <Table
         css={{ height: "auto", minWidth: "100%" }}
         disabledKeys={disabledTracks}
