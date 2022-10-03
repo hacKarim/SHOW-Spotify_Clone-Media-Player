@@ -1,57 +1,55 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import React, { useState } from 'react';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import React, { useState } from "react";
 
+import styles from "../styles/Home.module.css";
 
+import { useQuery, gql } from "@apollo/client";
+import { useRouter } from "next/router";
+import { Playlist } from "../components/playlist/playlist";
+import { Player } from "../components/player/player";
 
-import styles from '../styles/Home.module.css'
-
-
-import { useQuery, gql } from '@apollo/client';
-import { useRouter } from 'next/router';
-import { Playlist } from '../components/playlist/playlist';
-import { Player } from '../components/player/player';
-
+import { useTheme as useNextTheme } from "next-themes";
+import { Switch, useTheme } from "@nextui-org/react";
 
 // This is a nice way to get only the data needed for the project
 const GET_PLAYLIST = gql`
-    query getUrl {
-      playlist {
-        name
-        images {
-          url
-        }
-        tracks {
-          added_at
-          track {
-            id
+  query getUrl {
+    playlist {
+      name
+      images {
+        url
+      }
+      tracks {
+        added_at
+        track {
+          id
+          name
+          preview_url
+          album {
             name
-            preview_url
-            album {
-                name
-                images {
-                  height
-                  width
-                  url
-                }
-              }
-              artists {
-                name
-              }
+            images {
+              height
+              width
+              url
+            }
+          }
+          artists {
+            name
           }
         }
       }
     }
-    `;
-
-
+  }
+`;
 
 const Home: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const { setTheme } = useNextTheme();
+  const { isDark, type } = useTheme();
 
   const { loading, error, data } = useQuery(GET_PLAYLIST);
-
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -65,18 +63,21 @@ const Home: NextPage = () => {
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Switch
+        checked={isDark}
+        onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+      />
 
       <main className={styles.main}>
         <Playlist playlist={data.playlist}></Playlist>
         <Player tracks={data.playlist.tracks}></Player>
-
       </main>
 
       <footer className={styles.footer}>
         <div>MENU</div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
