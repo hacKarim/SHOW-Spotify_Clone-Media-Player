@@ -2,7 +2,16 @@ import { ReactElement, useEffect } from "react";
 import React, { useState } from "react";
 import { PlaylistHeader } from "./header/header";
 import { PlaylistBody } from "./body/body";
-import { Table, Row, Col, Tooltip, User, Text } from "@nextui-org/react";
+import {
+  Table,
+  Row,
+  Col,
+  Grid,
+  User,
+  Text,
+  Card,
+  Button,
+} from "@nextui-org/react";
 
 export const Playlist = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -62,7 +71,6 @@ export const Playlist = (props: any): ReactElement => {
             </Row>
           </Col>
         );
-
       default:
         return cellValue;
     }
@@ -70,6 +78,45 @@ export const Playlist = (props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
+      <Grid.Container gap={2} justify="flex-start">
+        {tracks.map((track, index) => (
+          <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
+            <Card isPressable variant="bordered">
+              <Card.Header
+                css={{
+                  position: "absolute",
+                  bgBlur: "#00000066",
+                  borderTop:
+                    "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
+                  zIndex: 1,
+                }}
+              >
+                <Col>
+                  <Text
+                    size={12}
+                    weight="bold"
+                    transform="uppercase"
+                    color="#ffffffAA"
+                  >
+                    {track.artist} - {track.album}
+                  </Text>
+                  <Text h4 color="white">
+                    {track.title}{" "}
+                  </Text>
+                </Col>
+              </Card.Header>
+              <Card.Body css={{ p: 0 }}>
+                <Card.Image
+                  src={track.cover}
+                  objectFit="cover"
+                  width="100%"
+                  alt={track.title}
+                />
+              </Card.Body>
+            </Card>
+          </Grid>
+        ))}
+      </Grid.Container>
       <Table
         css={{ height: "auto", minWidth: "100%" }}
         disabledKeys={disabledTracks}
