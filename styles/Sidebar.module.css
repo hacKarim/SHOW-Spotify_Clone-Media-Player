@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+    .sideBarMain {
+        --square-length: 33px;
+        height: var(--square-length) !important;
+        padding: 0 0;
+        margin: 1em 3em;
+        flex-direction: row;
+        height: 100%;
+
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
+}
+
+@media screen and (max-width: 950px) and (min-width: 601px) {
+    .sideBarMain {
+        --square-length: 32px;
+        padding: 24px 0;
+        margin-inline: 16px;
+
+    }
+
+
+}
+
+@media screen and (min-width: 951px) {
+    .sideBarMain {
+        margin-inline: 24px;
+        max-width: 180px;
+        display: block !important;
+        --square-length: 35px;
+    }
+
+   
+}

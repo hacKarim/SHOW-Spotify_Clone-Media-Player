@@ -1,0 +1,50 @@
+@media screen and (max-width: 600px) {
+    .Root {
+     grid-template-rows: 1fr auto auto;
+ 
+     grid-template-areas:
+     "mainView"
+     "playerFooter"
+     "navBar";
+    } 
+ }
+ 
+ @media screen and (min-width: 601px) {
+     .Root {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: 1fr auto;
+
+      grid-template-areas:
+      "navBar mainView"
+      "playerFooter playerFooter";
+     } 
+  }
+ 
+ .Root {
+     display: grid;
+     position: absolute;
+     top: 0; right: 0; left: 0; bottom: 0;
+     overflow: hidden;
+ 
+ }
+   
+ .MainView {
+     background-color: var(--clr-playlist-background);
+     overflow-y: scroll;
+     overflow-x: hidden;
+     vertical-align: baseline;
+     grid-area: mainView;
+ }
+ 
+ .SideBar {
+     grid-area: navBar;
+     background-color: var(--clr-background-900);
+     background: yellow;
+ }
+ 
+ .playerFooter {
+     grid-area: playerFooter;
+     background: lime;
+ }
+   
+   

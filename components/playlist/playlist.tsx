@@ -1,17 +1,6 @@
-import { ReactElement, useEffect } from "react";
-import React, { useState } from "react";
+import { Table, User } from "@nextui-org/react";
+import React, { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
-import { PlaylistBody } from "./body/body";
-import {
-  Table,
-  Row,
-  Col,
-  Grid,
-  User,
-  Text,
-  Card,
-  Button,
-} from "@nextui-org/react";
 
 export const Playlist = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);

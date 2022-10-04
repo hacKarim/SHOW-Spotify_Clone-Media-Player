@@ -2,7 +2,10 @@ import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
+import Layout from "../components/Layout";
+
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { PlayerProvider } from "../context/playerContext";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -21,18 +24,22 @@ const darkTheme = createTheme({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <NextThemesProvider
-        defaultTheme="system"
-        attribute="class"
-        value={{
-          light: lightTheme.className,
-          dark: darkTheme.className,
-        }}
-      >
-        <NextUIProvider>
-          <Component {...pageProps} />
-        </NextUIProvider>
-      </NextThemesProvider>
+      <PlayerProvider>
+        <NextThemesProvider
+          defaultTheme="system"
+          attribute="class"
+          value={{
+            light: lightTheme.className,
+            dark: darkTheme.className,
+          }}
+        >
+          <Layout>
+            <NextUIProvider>
+              <Component {...pageProps} />
+            </NextUIProvider>
+          </Layout>
+        </NextThemesProvider>
+      </PlayerProvider>
     </ApolloProvider>
   );
 }
