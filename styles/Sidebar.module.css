@@ -1,35 +1,37 @@
-@media screen and (max-width: 600px) {
-    .sideBarMain {
-        --square-length: 33px;
-        height: var(--square-length) !important;
-        padding: 0 0;
-        margin: 1em 3em;
-        flex-direction: row;
-        height: 100%;
-
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr !important;
-    }
+.navbar
+{
+    min-width: 200px;
+}
+.navbar__logo
+{
+    font-size: 3.5em;
+    margin-left: 30px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 950px) and (min-width: 601px) {
-    .sideBarMain {
-        --square-length: 32px;
-        padding: 24px 0;
-        margin-inline: 16px;
-
-    }
-
-
+.navbar__group
+{
+    margin-bottom: 50px;
 }
+.navbar__group__header
+{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+.navbar__item
+{
+    font-size: 1.2em;
+    font-family: Helvetica, sans-serif;
+}
+.navbar__icon
+{
+    font-size: 1.5em;
+    margin-right: 10px;
+    line-height: 1.2em;
+}
+.navar__themeswitch
+{
+    margin-top: 10px;
 
-@media screen and (min-width: 951px) {
-    .sideBarMain {
-        margin-inline: 24px;
-        max-width: 180px;
-        display: block !important;
-        --square-length: 35px;
-    }
-
-   
 }

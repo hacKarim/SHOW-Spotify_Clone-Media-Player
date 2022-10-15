@@ -39,7 +39,6 @@
  
  .SideBar {
      grid-area: navBar;
-     border-right: 1px solid;
  }
  
  .playerFooter {
