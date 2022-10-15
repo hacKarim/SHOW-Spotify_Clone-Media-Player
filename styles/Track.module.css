@@ -67,6 +67,7 @@
   max-width: 200px;
   margin: 5px;
   text-overflow: ellipsis;
+  min-width: 50px;
 }
 
 .cover_image{

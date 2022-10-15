@@ -34,6 +34,8 @@ const GET_PLAYLIST = gql`
           artists {
             name
           }
+          popularity
+          duration_ms
         }
       }
     }
@@ -42,6 +44,7 @@ const GET_PLAYLIST = gql`
 
 const Home: NextPage = () => {
   const router = useRouter();
+  
 
   const { loading, error, data } = useQuery(GET_PLAYLIST);
 
