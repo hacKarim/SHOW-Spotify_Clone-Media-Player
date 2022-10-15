@@ -6,8 +6,6 @@ import { PlaylistHeader } from "./header/header";
 export const Playlist = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
- 
-
   const disabledTracks = playlist.tracks.map((element: any) => {
     if (element.track.preview_url == null) return element.track.id;
   });
@@ -41,9 +39,9 @@ export const Playlist = (props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-        {playlist.tracks.map((element: any) => {
-          return <Track key={element.id} track={element}></Track>;
-        })}
+      {playlist.tracks.map((element: any) => {
+        return <Track key={element.id} track={element}></Track>;
+      })}
     </>
   );
 };

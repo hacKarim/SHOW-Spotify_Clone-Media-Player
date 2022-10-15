@@ -49,11 +49,11 @@ const Sidebar = () => {
         </ul>
         <ul className={styles.navbar__group}>
           <Text
-          className={styles.navbar__group__header}
-          css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-        >
-          YOUR LIBRARY
-        </Text>
+            className={styles.navbar__group__header}
+            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
+          >
+            YOUR LIBRARY
+          </Text>
           <li>
             <span className={styles.navbar__item}>
               <Link className={styles.navbar__link} href={"/playlists"}>
@@ -93,11 +93,11 @@ const Sidebar = () => {
         </ul>
         <ul className={styles.navbar__group}>
           <Text
-          className={styles.navbar__group__header}
-          css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-        >
-          PREFERENCES
-        </Text>
+            className={styles.navbar__group__header}
+            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
+          >
+            PREFERENCES
+          </Text>
           <li>
             <span className={styles.navbar__item}>
               <span className={styles.navbar__icon}>🌙</span>

@@ -5,11 +5,17 @@ import { Progress, Grid, Tooltip, Text } from "@nextui-org/react";
 import dynamic from "next/dynamic";
 import styles from "./../../styles/Player.module.css";
 import Link from "next/link";
+import { usePlay } from "./../../context/playerContext";
 
 const AudioPlayer = dynamic(() => import("react-audio-player"), { ssr: false });
 
 export const Player = (props): ReactElement => {
   const [tracks, setTracks] = useState(props.tracks);
+  const { song } = usePlay();
+
+  if (song.id == "") {
+    return <div></div>;
+  }
 
   return (
     <>
