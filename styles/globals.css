@@ -25,6 +25,13 @@ a {
   }
 }
 
+:root{
+  --nextui-radii-squared : 30px;
+}
+
+.nextui-avatar-img {
+  cursor: pointer !important;
+}
 
 
 /* ===== Scrollbar CSS ===== */

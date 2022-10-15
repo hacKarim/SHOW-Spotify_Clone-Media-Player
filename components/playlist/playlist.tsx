@@ -6,32 +6,7 @@ import { PlaylistHeader } from "./header/header";
 export const Playlist = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
-  const columns = [
-    {
-      key: "title",
-      label: "NAME",
-    },
-    // {
-    //   key: "artist",
-    //   label: "ARTIST",
-    // },
-    {
-      key: "album",
-      label: "ALBUM",
-    },
-  ];
-
-  const tracks = playlist.tracks.map((element: any) => {
-    let temp = {
-      id: element.track.id,
-      title: element.track.name,
-      artist: element.track.artists[0].name,
-      album: element.track.album.name,
-      cover: element.track.album.images[0].url,
-      previewUrl: element.track.preview_url,
-    };
-    return temp;
-  });
+ 
 
   const disabledTracks = playlist.tracks.map((element: any) => {
     if (element.track.preview_url == null) return element.track.id;
@@ -66,34 +41,9 @@ export const Playlist = (props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-
-{
-  playlist.tracks.map((element: any) => {
-    return (<Track key={element.id} track={element}></Track>);
-}
-  )}
-</>
-
-/* <Table
-        css={{ height: "auto", minWidth: "100%" }}
-        disabledKeys={disabledTracks}
-        hoverable
-        sticked
-      >
-        <Table.Header columns={columns}>
-          {(column) => (
-            <Table.Column key={column.key}>{column.label}</Table.Column>
-          )}
-        </Table.Header>
-        <Table.Body items={tracks}>
-          {(item: any) => (
-            <Table.Row key={item.id}>
-              {(columnKey) => (
-                <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-              )}
-            </Table.Row>
-          )}
-        </Table.Body>
-      </Table> */
+        {playlist.tracks.map((element: any) => {
+          return <Track key={element.id} track={element}></Track>;
+        })}
+    </>
   );
 };

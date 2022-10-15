@@ -7,7 +7,18 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 10px;
+
 }
+
+
+.row:hover{
+  background-color: #99999920;
+  opacity: 1;
+}
+
 .row_disabled {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +32,13 @@
   color: grey !important;
   opacity: 0.5;
 }
-.item {
+.item_trackname {
+  flex: 1 0 15%;
+  margin: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item_album {
   flex: 1 0 15%;
   margin: 5px;
   overflow: hidden;
@@ -31,6 +48,15 @@
   max-width: 100px;
   margin: 5px;
   text-overflow: ellipsis;
+  cursor: pointer;
+}
+.item_artists{
+  flex: 0 0 15%;
+  max-width: 300px;
+  margin: 5px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-align: right;
 }
 .item_fav{
   max-width: 200px;
@@ -42,3 +68,52 @@
   margin: 5px;
   text-overflow: ellipsis;
 }
+
+.cover_image{
+  border-radius: 10px;
+  overflow: hidden;
+  height: 64px;
+  width: 64px;
+}
+
+.row:hover .cover_image img
+{
+  opacity: 0.2;
+}
+
+.play_icon
+{
+  opacity: 0;
+  position: absolute;
+  vertical-align: center;
+  height: 100%;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+.row:hover .play_icon
+{
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .item_artists, .item_duration, .item_album{
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .item_artists, .item_duration{
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .item_duration{
+    display: none;
+  }
+}
+
+.item_artists >div {
+  justify-content: flex-end;
+  width: 100%;
+}
+
