@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import styles from "../styles/Layout.module.css";
 import { Player } from "./player/player";
 import SideBar from "./Sidebar";
@@ -9,7 +9,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <div className={styles.Root}>
       <div className={styles.SideBar}>
         <SideBar />
       </div>

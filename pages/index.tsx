@@ -52,10 +52,6 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Playlist playlist={data.playlist}></Playlist>
       </main>
-
-      <footer className={styles.footer}>
-        <div>MENU</div>
-      </footer>
     </div>
   );
 };

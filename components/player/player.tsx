@@ -1,5 +1,4 @@
-import { ReactElement, useEffect } from "react";
-import React, { useState } from "react";
+import { ReactElement, useState } from "react";
 //Next dynamic used to disable ssr on this import
 import dynamic from "next/dynamic";
 const AudioPlayer = dynamic(() => import("react-audio-player"), { ssr: false });

@@ -3,6 +3,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
+import Head from "next/head";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { PlayerProvider } from "../context/playerContext";
@@ -34,6 +35,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           }}
         >
           <Layout>
+            <Head>
+              <title>Shotgun - Playlist</title>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
+            </Head>
             <NextUIProvider>
               <Component {...pageProps} />
             </NextUIProvider>

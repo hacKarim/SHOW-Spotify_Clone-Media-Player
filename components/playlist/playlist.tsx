@@ -10,10 +10,10 @@ export const Playlist = (props: any): ReactElement => {
       key: "title",
       label: "NAME",
     },
-    {
-      key: "artist",
-      label: "ARTIST",
-    },
+    // {
+    //   key: "artist",
+    //   label: "ARTIST",
+    // },
     {
       key: "album",
       label: "ALBUM",
@@ -42,8 +42,12 @@ export const Playlist = (props: any): ReactElement => {
       case "title":
         return (
           <User
+            name={item?.title}
             squared
+            zoomed
             src={item?.cover}
+            pointer
+            size="lg"
             css={{
               p: 0,
               filter:
@@ -51,9 +55,7 @@ export const Playlist = (props: any): ReactElement => {
                   ? "saturate(0)"
                   : "saturate(1)",
             }}
-          >
-            {item?.title}
-          </User>
+          ></User>
         );
 
       default:
@@ -66,6 +68,8 @@ export const Playlist = (props: any): ReactElement => {
       <Table
         css={{ height: "auto", minWidth: "100%" }}
         disabledKeys={disabledTracks}
+        hoverable
+        sticked
       >
         <Table.Header columns={columns}>
           {(column) => (

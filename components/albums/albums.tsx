@@ -1,9 +1,30 @@
-import { Card, Col, Grid, Text } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Col,
+  Grid,
+  Input,
+  Modal,
+  Image,
+  Row,
+  Text,
+} from "@nextui-org/react";
 import { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
 
 export const Albums = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
+
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
+
+  const handler = (track: any) => {
+    setSelectedAlbum(track);
+  };
+
+  const closeHandler = () => {
+    setSelectedAlbum(null);
+  };
 
   const tracks = playlist.tracks.map((element: any) => {
     let temp = {
@@ -21,9 +42,9 @@ export const Albums = (props: any): ReactElement => {
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <Grid.Container gap={2} justify="flex-start">
-        {tracks.map((track, index) => (
+        {tracks.map((track: any, index: number) => (
           <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
-            <Card isPressable variant="bordered">
+            <Card isPressable variant="bordered" onClick={() => handler(track)}>
               <Card.Body css={{ p: 0 }}>
                 <Card.Image
                   src={track.cover}
@@ -49,10 +70,10 @@ export const Albums = (props: any): ReactElement => {
                     transform="uppercase"
                     color="#ffffffAA"
                   >
-                    {track.artist} - {track.album}
+                    {track.artist}
                   </Text>
                   <Text h4 color="white">
-                    {track.title}{" "}
+                    {track.album}{" "}
                   </Text>
                 </Col>
               </Card.Footer>
@@ -60,6 +81,60 @@ export const Albums = (props: any): ReactElement => {
           </Grid>
         ))}
       </Grid.Container>
+
+      <Modal
+        closeButton
+        blur
+        width="fit-content"
+        open={selectedAlbum != null ? true : false}
+        onClose={closeHandler}
+        noPadding
+        style={{ paddingTop: 0 }}
+      >
+        <Modal.Body>
+          {selectedAlbum && (
+            <Image
+              src={selectedAlbum ? selectedAlbum.cover : ""}
+              width={800}
+              height={800}
+              objectFit="cover"
+            />
+          )}
+          {selectedAlbum && (
+            <>
+              <Text
+                h1
+                size={60}
+                css={{
+                  textGradient: "45deg, $yellow600 -20%, $red600 100%",
+                }}
+                weight="bold"
+                style={{ position: "absolute", lineHeight: 1 }}
+              >
+                {selectedAlbum && selectedAlbum.artist}
+              </Text>
+              <Text
+                h1
+                size={60}
+                css={{
+                  textGradient: "45deg, $blue600 -20%, $pink600 50%",
+                }}
+                weight="bold"
+                style={{
+                  position: "absolute",
+                  lineHeight: 1,
+                  top: 80,
+                }}
+              >
+                {selectedAlbum && selectedAlbum.album}
+              </Text>
+            </>
+          )}
+
+          {selectedAlbum && selectedAlbum.title}
+          {selectedAlbum && selectedAlbum.artist}
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
