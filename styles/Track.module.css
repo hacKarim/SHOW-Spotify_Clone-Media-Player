@@ -10,9 +10,38 @@
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 10px;
-
 }
 
+.row_current {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #99999920;
+  opacity: 1;
+}
+
+.row_current:hover .play_icon
+{
+  opacity: 1;
+}
+
+.row_current .play_icon
+{
+  opacity: 0.8;
+}
+
+.row_current .cover_image img
+{
+  opacity: 0.2;
+}
 
 .row:hover{
   background-color: #99999920;

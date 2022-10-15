@@ -1,14 +1,22 @@
 import { Table, User } from "@nextui-org/react";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import { Track } from "./body/Track";
 import { PlaylistHeader } from "./header/header";
+import { usePlay } from '../../context/playerContext';
 
 export const Playlist = (props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
+  const { initQueue } = usePlay()
+
+  useEffect(() => {
+    initQueue(props.playlist.tracks.map((e) => e.track))
+  }, [])
+
 
   const disabledTracks = playlist.tracks.map((element: any) => {
     if (element.track.preview_url == null) return element.track.id;
   });
+
 
   const renderCell = (item: any, columnKey: React.Key) => {
     const cellValue = item[columnKey];

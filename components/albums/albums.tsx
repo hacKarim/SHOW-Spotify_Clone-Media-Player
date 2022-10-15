@@ -10,7 +10,9 @@ import {
   Row,
   Text,
 } from "@nextui-org/react";
+import { cp } from "fs/promises";
 import { ReactElement, useState } from "react";
+import { Track } from "../playlist/body/Track";
 import { PlaylistHeader } from "./header/header";
 
 export const Albums = (props: any): ReactElement => {
@@ -37,6 +39,7 @@ export const Albums = (props: any): ReactElement => {
     };
     return temp;
   });
+
 
   return (
     <>
@@ -100,39 +103,11 @@ export const Albums = (props: any): ReactElement => {
               objectFit="cover"
             />
           )}
-          {selectedAlbum && (
-            <>
-              <Text
-                h1
-                size={60}
-                css={{
-                  textGradient: "45deg, $yellow600 -20%, $red600 100%",
-                }}
-                weight="bold"
-                style={{ position: "absolute", lineHeight: 1 }}
-              >
-                {selectedAlbum && selectedAlbum.artist}
-              </Text>
-              <Text
-                h1
-                size={60}
-                css={{
-                  textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                }}
-                weight="bold"
-                style={{
-                  position: "absolute",
-                  lineHeight: 1,
-                  top: 80,
-                }}
-              >
-                {selectedAlbum && selectedAlbum.album}
-              </Text>
-            </>
-          )}
+          
+          
+          
 
-          {selectedAlbum && selectedAlbum.title}
-          {selectedAlbum && selectedAlbum.artist}
+          {/* <Track track={tracks[0].track}></Track> */}
         </Modal.Body>
       </Modal>
     </>

@@ -41,6 +41,7 @@ export const Track = (props): ReactElement => {
     <>
       <div
         className={
+          isCurrentSong ? styles.row_current : 
           props.track.track.preview_url ? styles.row : styles.row_disabled
         }
       >
@@ -59,7 +60,7 @@ export const Track = (props): ReactElement => {
           >
             <div
               className={styles.cover_image}
-              onClick={() => PlayButtonBehavior()}
+              onClick={() => props.track.track.preview_url && PlayButtonBehavior()}
             >
               {!isCurrentSong ? (
                 <FaPlay className={styles.play_icon}></FaPlay>
