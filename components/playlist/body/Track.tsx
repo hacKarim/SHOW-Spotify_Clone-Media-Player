@@ -12,19 +12,18 @@ import {
   Modal,
   Progress,
 } from "@nextui-org/react";
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import styles from "./../../../styles/Track.module.css";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
 import moment from "moment";
 import { usePlay } from "./../../../context/playerContext";
 
 export const Track = (props): ReactElement => {
   const [visible, setVisible] = useState(false);
   const { song, setSong, play, setPlay } = usePlay();
-  const [isCurrentSong, setIsCurrentSong] = useState<boolean>(
-    song === props.track.track
+  const [isCurrentSong, setIsCurrentSong] = useState(
+    song.id == props.track.track.id
   );
-  const unavailable: boolean = props.track.track.preview_url == null;
 
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -32,10 +31,11 @@ export const Track = (props): ReactElement => {
   };
 
   const PlayButtonBehavior = () => {
-    if (!unavailable) {
-      isCurrentSong ? setPlay(!play) : setSong(props.track.track, true);
-    }
+    isCurrentSong ? setPlay(!play) : setSong(props.track.track, true);
   };
+  useEffect(() => {
+      setIsCurrentSong(song.id == props.track.track.id);
+  }, [song]);
 
   return (
     <>
@@ -61,7 +61,11 @@ export const Track = (props): ReactElement => {
               className={styles.cover_image}
               onClick={() => PlayButtonBehavior()}
             >
-              <FaPlay className={styles.play_icon}></FaPlay>
+              {!isCurrentSong ? (
+                <FaPlay className={styles.play_icon}></FaPlay>
+              ) : (
+                play ? <FaPause className={styles.play_icon}></FaPause> : <FaPlay className={styles.play_icon}></FaPlay>
+              )}
 
               <img src={props.track.track.album.images[0].url}></img>
             </div>
