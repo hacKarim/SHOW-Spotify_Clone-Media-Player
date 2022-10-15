@@ -7,6 +7,10 @@
      "playerFooter"
      "navBar";
     } 
+    .SideBar
+    {
+        display: none;
+    }
  }
  
  @media screen and (min-width: 601px) {
@@ -43,7 +47,7 @@
  
  .playerFooter {
      grid-area: playerFooter;
-     border-top: 1px solid;
+     border-top: 1px dotted grey;
  }
    
    

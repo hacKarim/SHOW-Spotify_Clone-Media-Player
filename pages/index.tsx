@@ -7,6 +7,7 @@ import styles from "../styles/Home.module.css";
 import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import { Playlist } from "../components/playlist/playlist";
+import { Track } from "../components/common/Track";
 
 // This is a nice way to get only the data needed for the project
 const GET_PLAYLIST = gql`

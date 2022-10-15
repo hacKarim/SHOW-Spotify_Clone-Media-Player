@@ -1,5 +1,6 @@
 import { Table, User } from "@nextui-org/react";
 import React, { ReactElement, useState } from "react";
+import { Track } from "./body/Track";
 import { PlaylistHeader } from "./header/header";
 
 export const Playlist = (props: any): ReactElement => {
@@ -65,7 +66,15 @@ export const Playlist = (props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-      <Table
+
+{
+  playlist.tracks.map((element: any) => {
+    return (<Track key={element.id} track={element}></Track>);
+}
+  )}
+</>
+
+/* <Table
         css={{ height: "auto", minWidth: "100%" }}
         disabledKeys={disabledTracks}
         hoverable
@@ -85,7 +94,6 @@ export const Playlist = (props: any): ReactElement => {
             </Table.Row>
           )}
         </Table.Body>
-      </Table>
-    </>
+      </Table> */
   );
 };

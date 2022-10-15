@@ -14,15 +14,25 @@
 {
     margin-bottom: 50px;
 }
+.navbar__group li:hover
+{
+    font-weight: bold;
+}
 .navbar__group__header
 {
     font-size: 1.5em;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 .navbar__item
 {
     font-size: 1.2em;
     font-family: Helvetica, sans-serif;
+    min-width: 200px;
+    display: block;
+}
+.navbar__item a 
+{
 }
 .navbar__icon
 {

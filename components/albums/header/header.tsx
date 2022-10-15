@@ -6,9 +6,9 @@ export const PlaylistHeader = (props: any): ReactElement => {
     <>
       <Text
         h1
-        size={60}
-        css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%" }}
-        weight="bold"
+        size={40}
+        css={{ textGradient: "45deg, $gray900 -20%, $gray100 50%" }}
+        weight="thin"
       >
         {props.playlistName} Albums
       </Text>
