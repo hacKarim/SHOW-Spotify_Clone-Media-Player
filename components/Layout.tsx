@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className={styles.Root}>
       <div className={styles.SideBar}>
-        <Sidebar />
+      <AnimatePresence exitBeforeEnter><Sidebar /></AnimatePresence>
       </div>
       <main className={styles.MainView}>
         <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>

@@ -18,6 +18,44 @@
     justify-content: space-between;
     align-items: center;
 }
+.player__body__open
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.player__body__open .player__song_info_wrapper, .player__body__open .track__cover_art_image , .player__body__open .track__cover_art_image img
+{
+    max-width: unset;
+    min-width: unset;
+    min-height: unset;
+    max-height: unset;
+    width: unset;
+    height: unset;
+}
+.player__body__open .player__song_info, .player__body__open .player__song_info_wrapper {
+    display: block;
+}
+
+.player__body__open .player__song_info_wrapper 
+{
+    display: block;
+   margin: 0 auto;
+
+
+}
+
+.player__body__open .track__cover_art_image
+{
+   max-width: 80vw;
+   max-height: 50vh;
+   margin: 0 auto;
+}
+
+
 
 .player__control_panel {
     width: 50%;
@@ -57,7 +95,8 @@
 }
 
 @media screen and (max-width: 800px) {
-    .track__cover_art_image, .player__song_info_wrapper, .player__additional_buttons {
+
+     .player__song_info_wrapper, .player__additional_buttons {
         width: 100px;
         height: 100px;
     }

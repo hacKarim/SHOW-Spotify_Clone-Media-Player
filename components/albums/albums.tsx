@@ -13,6 +13,7 @@ import {
 import { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
+import { Track } from "../playlist/body/Track";
 
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -21,6 +22,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
 
   const handler = (track: any) => {
     setSelectedAlbum(track);
+    console.log(track);
   };
 
   const closeHandler = () => {
@@ -44,7 +46,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <Grid.Container gap={2} justify="flex-start">
         {tracks.map((track: any, index: number) => (
-          <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
+          <Grid xs={6} sm={6} md={4} lg={3} xl={2} key={index}>
             <Card isPressable variant="bordered" onClick={() => handler(track)}>
               <Card.Body css={{ p: 0 }}>
                 <Card.Image
@@ -74,7 +76,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
                     {track.artist}
                   </Text>
                   <Text h4 color="white">
-                    {track.album}{" "}
+                    {track.album}
                   </Text>
                 </Col>
               </Card.Footer>
@@ -90,20 +92,18 @@ export const Albums = MotionHoc((props: any): ReactElement => {
         open={selectedAlbum != null ? true : false}
         onClose={closeHandler}
         noPadding
-        style={{ paddingTop: 0 }}
+        style={{ paddingTop: 0}}
       >
-        <Modal.Body>
+        <Modal.Body style={{maxWidth: "80vw",maxHeight: "80vh"}}>
           {selectedAlbum && (
             <Image
               src={selectedAlbum ? selectedAlbum.cover : ""}
-              width={800}
-              height={800}
               objectFit="cover"
             />
           )}
-
-          {/* <Track track={tracks[0].track}></Track> */}
+          
         </Modal.Body>
+        
       </Modal>
     </>
   );

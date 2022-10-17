@@ -3,20 +3,22 @@ import { useTheme as useNextTheme } from "next-themes";
 import { Switch, Text } from "@nextui-org/react";
 import Link from "next/link";
 import styles from "../styles/Sidebar.module.css";
+import MotionHoc from "./common/MotionHoc";
 
-const Sidebar = () => {
+const Sidebar = MotionHoc(() => {
   const { theme, setTheme } = useNextTheme();
 
   return (
     <>
       <nav className={styles.navbar}>
-        <Text></Text>
-        <Text
-          className={styles.navbar__logo}
-          css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-        >
-          //PLAY
-        </Text>
+        <Text></Text>{" "}
+          <Text
+            className={styles.navbar__logo}
+            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
+          >
+            //PLAY
+          </Text>
+
         <ul className={styles.navbar__group}>
           <li>
             <Link className={styles.navbar__link} href={"/"}>
@@ -134,12 +136,12 @@ const Sidebar = () => {
                 className={styles.navar__themeswitch}
                 onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
               />
-            </Text>{" "}
+            </Text>
           </li>
         </ul>
       </nav>
     </>
   );
-};
+});
 
 export default Sidebar;

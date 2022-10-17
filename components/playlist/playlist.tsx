@@ -18,9 +18,7 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <div className={styles.row_header}>
-        <div className={styles.item_image} style={{width: 64}}>
-
-        </div>
+        <div className={styles.item_image} style={{ width: 64 }}></div>
 
         <div className={styles.item_trackname}>
           <Text h4>Title</Text>
@@ -37,7 +35,6 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
         </div>
         <div className={styles.item_fav}>🤍</div>
       </div>
-
       {playlist.tracks.map((element: any) => {
         return <Track key={element.id} track={element}></Track>;
       })}
