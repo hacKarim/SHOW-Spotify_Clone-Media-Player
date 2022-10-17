@@ -22,7 +22,6 @@ export const Player = (props): ReactElement => {
 
   return (
     <>
-      {" "}
       <AnimatePresence>
         <motion.div
           initial={{ y: 300, opacity: 0 }}
