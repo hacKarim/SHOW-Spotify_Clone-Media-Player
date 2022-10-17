@@ -13,7 +13,7 @@ import {
 import { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
-import { Track } from "../playlist/body/Track";
+import { AlbumCase } from "../albums/case/case";
 
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -43,43 +43,10 @@ export const Albums = MotionHoc((props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-      <Grid.Container gap={2} justify="flex-start">
+      <Grid.Container gap={4} justify="flex-start">
         {tracks.map((track: any, index: number) => (
-          <Grid xs={6} sm={6} md={4} lg={3} xl={2} key={index}>
-            <Card isPressable variant="bordered" onClick={() => handler(track)}>
-              <Card.Body css={{ p: 0 }}>
-                <Card.Image
-                  src={track.cover}
-                  objectFit="cover"
-                  width="100%"
-                  alt={track.title}
-                />
-              </Card.Body>
-              <Card.Footer
-                css={{
-                  position: "absolute",
-                  bg: "#00000070",
-                  borderTop:
-                    "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-                  zIndex: 1,
-                  bottom: 0,
-                }}
-              >
-                <Col>
-                  <Text
-                    size={12}
-                    weight="medium"
-                    transform="uppercase"
-                    color="#ffffffAA"
-                  >
-                    {track.artist}
-                  </Text>
-                  <Text h4 color="white">
-                    {track.album}
-                  </Text>
-                </Col>
-              </Card.Footer>
-            </Card>
+          <Grid  xs={12} sm={6} md={4} lg={3} xl={2} key={index}onClick={() => handler(track)} style={{ justifyContent: "center"}} >
+            <AlbumCase track={track}  />
           </Grid>
         ))}
       </Grid.Container>
@@ -103,7 +70,6 @@ export const Albums = MotionHoc((props: any): ReactElement => {
           
         </Modal.Body>
         
-      </Modal>
-    </>
+      </Modal>    </>
   );
 });

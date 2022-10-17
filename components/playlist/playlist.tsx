@@ -43,15 +43,13 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
           </Text>
         </div>
       </div>
-      {playlist.tracks.map((element: any) => {
-        return (
-          <Track
-            key={element.id}
-            track={element}
-            // favValue={props.favorites.favlist[element.track.id].isFav}
-          ></Track>
-        );
-      })}
+      {playlist.tracks.map((element: any, index: any) => (
+        <Track
+          key={index}
+          track={element}
+          // favValue={props.favorites.favlist[element.track.id].isFav}
+        ></Track>
+      ))}
     </>
   );
 });

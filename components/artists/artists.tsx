@@ -23,7 +23,7 @@ export const Artists = MotionHoc((props: any): ReactElement => {
 
   const handler = (track: any) => {
     setSelectedAlbum(track);
-    console.log(track);
+    (track);
   };
 
   const closeHandler = () => {

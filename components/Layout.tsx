@@ -12,10 +12,10 @@ const Layout = ({ children }: Props) => {
   return (
     <div className={styles.Root}>
       <div className={styles.SideBar}>
-      <AnimatePresence exitBeforeEnter><Sidebar /></AnimatePresence>
+          <Sidebar key="sidebar" />
       </div>
       <main className={styles.MainView}>
-        <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
+       {children}
       </main>
       <footer className={styles.playerFooter}>
         <Player />

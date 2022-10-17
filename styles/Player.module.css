@@ -138,6 +138,11 @@
     }
 }
 
+.player__progress {
+    filter: saturate(0) blur(2px);
+    opacity: 0.2;
+}
+
 .player__song_info {
     flex-grow: 1;
     text-align: center;

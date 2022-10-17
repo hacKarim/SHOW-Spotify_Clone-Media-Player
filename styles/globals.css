@@ -54,7 +54,14 @@ a {
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #999;
+    background-color: rgba(153, 153, 153, 0.2);
+    opacity: 0.5;
     border-radius: 10px;
     border: 3px solid #ffffff00;
   }
+
+
+
+  .only-text-avatar {
+    filter: contrast(2) drop-shadow(0px 0px 1px black) invert(1);
+}

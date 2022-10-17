@@ -38,16 +38,19 @@ export const Player = (props): ReactElement => {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="sync">
         <motion.div
+          key="player"
           initial={{ y: 300, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeOut" }}
+          transition={{ ease: "easeOut", duration: 0.2 }}
+          
           exit={{ y: -300, opacity: 0 }}
         >
           <motion.div
+            key="poster_player"
             animate={isOpen ? "open" : "closed"}
-            transition={{ ease: "easeOut" }}
+            transition={{ ease: "easeOut",  duration: 0.2}}
             variants={{
               open: { height: "100vh" },
               closed: { height: "unset" },

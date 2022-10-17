@@ -101,48 +101,7 @@ export const Track = (props): ReactElement => {
         <div className={styles.item_artists}>
           <Avatar.Group>
             {props.track.track.artists.map((element, index) => (
-              <Popover placement="bottom-right">
-                <Popover.Trigger>
                   <Avatar key={index} size="md" pointer text={element.name} />
-                </Popover.Trigger>
-                <Popover.Content>
-                  <Grid.Container
-                    css={{
-                      mw: "300px",
-                      borderRadius: "$lg",
-                      padding: "$sm",
-                    }}
-                  >
-                    <Row justify="space-around" align="center">
-                      <Col span={8}>
-                        <User
-                          name={element.name}
-                          description="Artist / Musician"
-                        />
-                      </Col>
-                      <Col span={4}>
-                        <Row>
-                          <Button
-                            auto
-                            rounded
-                            css={{
-                              maxHeight: "$space$12",
-                              fs: "$xs",
-                              fontWeight: "$semibold",
-                              borderColor: "$primary",
-                              color: "$white",
-                            }}
-                            color="primary"
-                            bordered={true}
-                          >
-                            {<Text>Visit</Text>}
-                          </Button>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </Grid.Container>
-                </Popover.Content>
-              </Popover>
             ))}
           </Avatar.Group>
         </div>
