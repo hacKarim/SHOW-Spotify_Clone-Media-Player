@@ -39,7 +39,13 @@ export const Player = (props): ReactElement => {
               closed: { height: "unset" },
             }}
           >
-            <div className={styles.player__wrapper + " " + styles.flex_center}>
+            <div className={styles.player__background} style={{
+                background: "url('" + song.album.images[0].url + "')",
+              }}></div>
+            <div
+              className={styles.player__wrapper + " " + styles.flex_center}
+              
+            >
               <div
                 className={
                   styles.player__body +
@@ -54,6 +60,14 @@ export const Player = (props): ReactElement => {
                   />
                 </div>
                 <div className={styles.player__control_panel}>
+                  
+                  <Progress
+                    value={10}
+                    shadow
+                    color="error"
+                    status="error"
+                    className={styles.player__progress}
+                  />
                   <div className={styles.player__song_info}>
                     <p
                       className={
@@ -74,13 +88,6 @@ export const Player = (props): ReactElement => {
                       </Text>
                     </p>
                   </div>
-                  <Progress
-                    value={10}
-                    shadow
-                    color="error"
-                    status="error"
-                    className={styles.player__progress}
-                  />
                   <div className={styles.player__controls}>
                     <div onClick={() => previousSong()}>⏮️</div>
                     <div
@@ -126,9 +133,10 @@ export const Player = (props): ReactElement => {
               </div>
               <div
                 style={{
-                  textAlign: "right",
+                  right: 0,
                   marginTop: "-1.5em",
                   fontSize: "2em",
+                  position: "absolute"
                 }}
               >
                 <span onClick={() => setIsOpen(!isOpen)}>

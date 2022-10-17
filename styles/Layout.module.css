@@ -6,10 +6,6 @@
      "navBar mainView"
      "playerFooter playerFooter"
     } 
-    .SideBar
-    {
-        /* display: none; */
-    }
  }
  
  @media screen and (min-width: 601px) {
@@ -37,6 +33,8 @@
      overflow-x: hidden;
      vertical-align: baseline;
      grid-area: mainView;
+     padding: 20px;
+     padding-bottom: 190px;
  }
  
  .SideBar {
@@ -47,13 +45,15 @@
  
  .playerFooter {
      grid-area: playerFooter;
-     box-shadow: 0px -15px 20px 0px #0000000d;
+     /* box-shadow: 0px -15px 20px 0px #0000000d; */
      z-index: 999999999999999999;
      position: fixed;
      bottom: 0;
      /* height: 100vh; */
      width: 100vw;
-     backdrop-filter: blur(50px);
+     transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+     backdrop-filter: saturate(180%) blur(100px);
+     /* background: rgba(132, 132, 132, 0.1); */
  }
    
    
