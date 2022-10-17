@@ -1,16 +1,30 @@
 import { ReactElement, useState, useEffect } from "react";
 import { Progress, Tooltip, Text } from "@nextui-org/react";
-
+import { useTheme as useNextTheme } from "next-themes";
 import styles from "./../../styles/Player.module.css";
 import { usePlay } from "./../../context/playerContext";
 import moment from "moment";
 import { AnimatePresence, motion } from "framer-motion";
 import { AiFillCaretUp } from "react-icons/ai";
+import { FaPlay, FaPause } from "react-icons/fa";
+import {
+  FiHeart,
+  FiPlay,
+  FiPause,
+  FiArrowLeft,
+  FiArrowRight,
+} from "react-icons/fi";
+
+import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
+import { BsArrowUpLeftSquare, BsArrowDownSquare } from "react-icons/bs";
 
 export const Player = (props): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();
   const [noSong, setNoSong] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useNextTheme();
+
+  const ui_color = useNextTheme().theme == "dark" ? "white" : "black";
 
   useEffect(() => {
     if (song.name != "") {
@@ -39,13 +53,32 @@ export const Player = (props): ReactElement => {
               closed: { height: "unset" },
             }}
           >
-            <div className={styles.player__background} style={{
-                background: "url('" + song.album.images[0].url + "')",
-              }}></div>
             <div
-              className={styles.player__wrapper + " " + styles.flex_center}
-              
-            >
+              className={styles.player__background}
+              style={{
+                background: "url('" + song.album.images[0].url + "')",
+              }}
+            ></div>
+            <div className={styles.flex_center}>
+              <div
+                style={{
+                  right: 0,
+                  fontSize: "2em",
+                  right: 10,
+                  top: 5,
+                  cursor: "pointer",
+                  position: "absolute",
+                  zIndex: 999,
+                }}
+              >
+                <span onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? (
+                    <BsArrowDownSquare color={ui_color} />
+                  ) : (
+                    <BsArrowUpLeftSquare color={ui_color} />
+                  )}
+                </span>
+              </div>
               <div
                 className={
                   styles.player__body +
@@ -60,12 +93,13 @@ export const Player = (props): ReactElement => {
                   />
                 </div>
                 <div className={styles.player__control_panel}>
-                  
                   <Progress
                     value={10}
-                    shadow
-                    color="error"
-                    status="error"
+                    animated
+                    size="xs"
+                    // shadow
+                    indeterminated={play ? true : false}
+                    color="success"
                     className={styles.player__progress}
                   />
                   <div className={styles.player__song_info}>
@@ -89,59 +123,26 @@ export const Player = (props): ReactElement => {
                     </p>
                   </div>
                   <div className={styles.player__controls}>
-                    <div onClick={() => previousSong()}>⏮️</div>
+                    <div onClick={() => previousSong()}>
+                      <MdSkipPrevious color={ui_color} />
+                    </div>
                     <div
                       onClick={() => setPlay(!play)}
                       style={{ fontSize: "2em" }}
                     >
-                      {play ? "⏸️" : "▶️"}
+                      {play ? (
+                        <FaPause color={ui_color} />
+                      ) : (
+                        <FaPlay color={ui_color} />
+                      )}
                     </div>
-                    <div onClick={() => !noSong && skipSong()}>⏭️</div>
+                    <div onClick={() => !noSong && skipSong()}>
+                      <MdSkipNext color={ui_color} />
+                    </div>
                   </div>
                 </div>
 
-                <div className={styles.player__additional_buttons}>
-                  <div className={styles.player__time}>
-                    <Text>
-                      {moment(song.duration_ms, "x").minutes() +
-                        ":" +
-                        moment(song.duration_ms, "x")
-                          .seconds()
-                          .toLocaleString("en-US", {
-                            minimumIntegerDigits: 2,
-                            useGrouping: false,
-                          })}
-                    </Text>
-                  </div>
-                  <div>❤️</div>
-                  <div>🔁</div>
-                  <Tooltip
-                    placement="top"
-                    content={
-                      <input
-                        type="range"
-                        id="volume"
-                        name="volume"
-                        min="0"
-                        max="100"
-                      />
-                    }
-                  >
-                    🔊
-                  </Tooltip>
-                </div>
-              </div>
-              <div
-                style={{
-                  right: 0,
-                  marginTop: "-1.5em",
-                  fontSize: "2em",
-                  position: "absolute"
-                }}
-              >
-                <span onClick={() => setIsOpen(!isOpen)}>
-                  {isOpen ? "⬇️" : "⬆️"}
-                </span>
+                <div className={styles.player__additional_buttons}></div>
               </div>
             </div>
           </motion.div>

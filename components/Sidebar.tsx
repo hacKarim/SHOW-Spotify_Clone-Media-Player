@@ -4,47 +4,67 @@ import { Switch, Text } from "@nextui-org/react";
 import Link from "next/link";
 import styles from "../styles/Sidebar.module.css";
 import MotionHoc from "./common/MotionHoc";
+import {
+  FiHome,
+  FiBarChart,
+  FiHeart,
+  FiList,
+  FiMusic,
+  FiUser,
+  FiDisc,
+  FiSun,
+  FiMoon,
+} from "react-icons/fi";
+import { useRouter } from "next/router";
+import Logo from "./navigation/Logo";
 
 const Sidebar = MotionHoc(() => {
   const { theme, setTheme } = useNextTheme();
+  const router = useRouter();
 
   return (
     <>
       <nav className={styles.navbar}>
-        <Text></Text>{" "}
-          <Text
-            className={styles.navbar__logo}
-            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-          >
-            //PLAY
-          </Text>
+        <div
+          className={
+            useNextTheme().theme == "dark" ? styles.logodark : styles.logo
+          }
+        >
+          <Logo />
+        </div>
 
         <ul className={styles.navbar__group}>
-          <li>
+          <li className={router.asPath == "/" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>🏠</span>
+                  <span className={styles.navbar__icon}>
+                    <FiHome />
+                  </span>
                   <span className={styles.navbar__text}>Home</span>
                 </Text>
               </a>
             </Link>
           </li>
-          <li>
+          <li className={router.asPath == "/charts" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/charts"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>💽</span>
+                  <span className={styles.navbar__icon}>
+                    <FiBarChart />
+                  </span>
                   <span className={styles.navbar__text}>Charts</span>
                 </Text>{" "}
               </a>
             </Link>
           </li>
-          <li>
+          <li className={router.asPath == "/favorites" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/favorites"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>❤️</span>
+                  <span className={styles.navbar__icon}>
+                    <FiHeart />
+                  </span>
                   <span className={styles.navbar__text}>Favorites</span>
                 </Text>{" "}
               </a>
@@ -52,47 +72,50 @@ const Sidebar = MotionHoc(() => {
           </li>
         </ul>
         <ul className={styles.navbar__group}>
-          <Text
-            className={styles.navbar__group__header}
-            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-          >
-            YOUR LIBRARY
-          </Text>
-          <li>
+          <Text className={styles.navbar__group__header}>YOUR LIBRARY</Text>
+          <li className={router.asPath == "/playlists" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/playlists"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>📼</span>
+                  <span className={styles.navbar__icon}>
+                    <FiList />
+                  </span>
                   <span className={styles.navbar__text}>Playlists</span>
                 </Text>{" "}
               </a>
             </Link>
           </li>
-          <li>
+          <li className={router.asPath == "/songs" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/songs"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>🎵</span>
+                  <span className={styles.navbar__icon}>
+                    <FiMusic />
+                  </span>
                   <span className={styles.navbar__text}>Songs</span>
                 </Text>{" "}
               </a>
             </Link>
           </li>
-          <li>
+          <li className={router.asPath == "/artists" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/artists"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>🧑‍🎤</span>
+                  <span className={styles.navbar__icon}>
+                    <FiUser />
+                  </span>
                   <span className={styles.navbar__text}>Artists</span>
                 </Text>{" "}
               </a>
             </Link>
           </li>
-          <li>
+          <li className={router.asPath == "/albums" ? styles.active : ""}>
             <Link className={styles.navbar__link} href={"/albums"}>
               <a>
                 <Text h3>
-                  <span className={styles.navbar__icon}>📀</span>
+                  <span className={styles.navbar__icon}>
+                    <FiDisc />
+                  </span>
                   <span className={styles.navbar__text}>Albums</span>
                 </Text>{" "}
               </a>
@@ -100,19 +123,18 @@ const Sidebar = MotionHoc(() => {
           </li>
         </ul>
         <ul className={styles.navbar__group}>
-          <Text
-            className={styles.navbar__group__header}
-            css={{ textGradient: "45deg, $blue600 0%, $green600 70%" }}
-          >
-            PREFERENCES
-          </Text>
+          <Text className={styles.navbar__group__header}>PREFERENCES</Text>
           <li>
             <Text h3 style={{ cursor: "pointer" }}>
               <span
                 className={styles.navbar__icon}
                 onClick={(e) => setTheme(theme == "light" ? "dark" : "light")}
               >
-                {useNextTheme().theme == "dark" ? "🌙" : "🌞"}
+                {useNextTheme().theme == "dark" ? (
+                  <FiMoon />
+                ) : (
+                  <FiSun color="orange" />
+                )}
               </span>
               <Switch
                 size={"md"}

@@ -2,12 +2,7 @@
     min-width: 200px;
 }
 
-.navbar__logo {
-    font-size: 3.5em;
-    margin-left: 30px;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 
 .navbar__group {
     margin-bottom: 50px;
@@ -18,18 +13,36 @@
 .navbar__group__header {
     font-size: 1.5em;
     margin-bottom: 15px;
-    font-weight: bold;
 }
 
 .navbar__text {
     font-size: 1em;
+    margin-top: -10px;
+    vertical-align: top;
+    font-weight: 100;
 }
 
-.navbar__group li:hover .navbar__text {
+.active {
+    margin-left: 10px;
+    transition-property: margin-left;
+    transition-duration: 50ms;
+    border-right: 5px solid;
+}
+
+.active .navbar__text {
     font-weight: bold;
-    font-size: 1.05em;
+}
+
+
+.navbar__group li:hover .navbar__text {
+    font-weight: 400;
+    font-size: 1em;
     transition-property: font-size;
     transition-duration: 50ms;
+}
+
+.navbar__group .active:hover .navbar__text {
+    font-weight: bold !important;
 }
 
 .navbar__group li:hover .navbar__icon {
@@ -40,9 +53,8 @@
 
 
 .navbar__icon {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-right: 10px;
-    line-height: 1.2em;
 }
 
 .navar__themeswitch {
@@ -57,14 +69,19 @@
 
 
 @media screen and (max-width: 600px) {
-    .navbar__text, .navbar__group__header, .navbar__logo {
+    .navbar__text, .navbar__group__header, .logo, .logodark {
         display: none;
+    }
+
+    .navbar__icon {
+        font-size: 1.5em;
+        bottom: 10px;
     }
 
     .navbar {
         min-width: unset;
         font-size: 0.8em;
-        margin-right: -10px;
+        margin-right: -12px;
     }
 
     .navar__themeswitch {
@@ -75,6 +92,7 @@
         height: 3em;
         font-size: 2em;
         margin: 0 -10px;
+        margin-bottom: 20px;
     }
 
 
@@ -95,4 +113,24 @@
     .navbar h3 {
         font-size: 1em;
     }
+
+    .logo {
+        margin-top: -10px;
+        margin-left: -10px;
+        width: 170px;
+    }
+
+    .logodark {
+        margin-top: -10px;
+        margin-left: -10px;
+        width: 170px;
+    }
+}
+
+.logo {
+    filter: saturate(0) contrast(1) brightness(10) invert(1);
+}
+
+.logodark {
+    filter: saturate(0) contrast(1) brightness(10) invert(0);
 }

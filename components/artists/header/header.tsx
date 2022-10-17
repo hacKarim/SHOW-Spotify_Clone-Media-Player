@@ -10,7 +10,7 @@ export const PlaylistHeader = (props: any): ReactElement => {
         css={{ textGradient: "45deg, $gray900 -20%, $gray100 50%" }}
         weight="thin"
       >
-        Top Albums
+        Top Artists
       </Text>
     </>
   );

@@ -5,13 +5,17 @@ import { PlaylistHeader } from "./header/header";
 import { usePlay } from "../../context/playerContext";
 import MotionHoc from "./../common/MotionHoc";
 import styles from "./../../styles/Track.module.css";
+import { FiHeart } from "react-icons/fi";
+import { useFav } from "../../context/favoritesContext";
 
 export const Playlist = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
   const { initQueue } = usePlay();
+  const { setFav } = useFav();
 
   useEffect(() => {
     initQueue(props.playlist.tracks.map((e) => e.track));
+    setFav(props.favorites);
   }, []);
 
   return (
@@ -33,10 +37,20 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
         <div className={styles.item_duration}>
           <Text></Text>
         </div>
-        <div className={styles.item_fav}>🤍</div>
+        <div className={styles.item_fav}>
+          <Text>
+            <FiHeart size={"2em"} />
+          </Text>
+        </div>
       </div>
       {playlist.tracks.map((element: any) => {
-        return <Track key={element.id} track={element}></Track>;
+        return (
+          <Track
+            key={element.id}
+            track={element}
+            // favValue={props.favorites.favlist[element.track.id].isFav}
+          ></Track>
+        );
       })}
     </>
   );

@@ -8,6 +8,14 @@ import Head from "next/head";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { PlayerProvider } from "../context/playerContext";
 
+const disableselect = (e) => {
+  return false;
+};
+if (typeof window !== "undefined") {
+  document.onselectstart = disableselect;
+  document.onmousedown = disableselect;
+}
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: "https://spotify-graphql.shotgun.live/api",

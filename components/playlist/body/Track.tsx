@@ -15,8 +15,10 @@ import {
 import { ReactElement, useState, useEffect } from "react";
 import styles from "./../../../styles/Track.module.css";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { FiHeart, FiPlay, FiPause } from "react-icons/fi";
 import moment from "moment";
 import { usePlay } from "./../../../context/playerContext";
+import { useFav } from "./../../../context/favoritesContext";
 
 export const Track = (props): ReactElement => {
   const [visible, setVisible] = useState(false);
@@ -24,6 +26,8 @@ export const Track = (props): ReactElement => {
   const [isCurrentSong, setIsCurrentSong] = useState(
     song.id == props.track.track.id
   );
+  const { addFav, removeFav, fav, isFav } = useFav();
+  const [liked, setLiked] = useState<boolean>(true);
 
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -34,15 +38,23 @@ export const Track = (props): ReactElement => {
     isCurrentSong ? setPlay(!play) : setSong(props.track.track, true);
   };
   useEffect(() => {
-      setIsCurrentSong(song.id == props.track.track.id);
+    setIsCurrentSong(song.id == props.track.track.id);
   }, [song]);
+
+  const LikeBehavior = () => {
+    // liked ? removeFav(props.track.track) : addFav(props.track.track)
+    // setLiked(!liked)
+  };
 
   return (
     <>
       <div
         className={
-          isCurrentSong ? styles.row_current : 
-          props.track.track.preview_url ? styles.row : styles.row_disabled
+          isCurrentSong
+            ? styles.row_current
+            : props.track.track.preview_url
+            ? styles.row
+            : styles.row_disabled
         }
       >
         <div className={styles.item_image}>
@@ -60,12 +72,16 @@ export const Track = (props): ReactElement => {
           >
             <div
               className={styles.cover_image}
-              onClick={() => props.track.track.preview_url && PlayButtonBehavior()}
+              onClick={() =>
+                props.track.track.preview_url && PlayButtonBehavior()
+              }
             >
               {!isCurrentSong ? (
                 <FaPlay className={styles.play_icon}></FaPlay>
+              ) : play ? (
+                <FaPause className={styles.play_icon}></FaPause>
               ) : (
-                play ? <FaPause className={styles.play_icon}></FaPause> : <FaPlay className={styles.play_icon}></FaPlay>
+                <FaPlay className={styles.play_icon}></FaPlay>
               )}
 
               <img src={props.track.track.album.images[0].url}></img>
@@ -147,7 +163,15 @@ export const Track = (props): ReactElement => {
             size="xs"
           />
         </div>
-        <div className={styles.item_fav}>🤍</div>
+        <div className={styles.item_fav}>
+          <Text>
+            <FiHeart
+              size={"2em"}
+              className={liked ? styles.heart_liked : styles.heart}
+              onClick={() => LikeBehavior()}
+            />
+          </Text>
+        </div>
       </div>
 
       <Modal
