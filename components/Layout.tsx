@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import styles from "../styles/Layout.module.css";
 import { Player } from "./player/player";
 import Sidebar from "./Sidebar";
+import { AnimatePresence } from "framer-motion";
 
 type Props = {
   children: ReactNode;
@@ -13,7 +14,9 @@ const Layout = ({ children }: Props) => {
       <div className={styles.SideBar}>
         <Sidebar />
       </div>
-      <main className={styles.MainView}>{children}</main>
+      <main className={styles.MainView}>
+        <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
+      </main>
       <footer className={styles.playerFooter}>
         <Player />
       </footer>

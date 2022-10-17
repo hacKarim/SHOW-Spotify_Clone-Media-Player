@@ -14,8 +14,9 @@ import { cp } from "fs/promises";
 import { ReactElement, useState } from "react";
 import { Track } from "../playlist/body/Track";
 import { PlaylistHeader } from "./header/header";
+import MotionHoc from "./../common/MotionHoc";
 
-export const Albums = (props: any): ReactElement => {
+export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
   const [selectedAlbum, setSelectedAlbum] = useState(null);
@@ -59,7 +60,7 @@ export const Albums = (props: any): ReactElement => {
               <Card.Footer
                 css={{
                   position: "absolute",
-                  bgBlur: "#00000066",
+                  bg: "#00000030",
                   borderTop:
                     "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
                   zIndex: 1,
@@ -112,4 +113,4 @@ export const Albums = (props: any): ReactElement => {
       </Modal>
     </>
   );
-};
+});
