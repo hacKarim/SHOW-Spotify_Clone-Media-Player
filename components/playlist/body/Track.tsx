@@ -74,7 +74,7 @@ export const Track = (props): ReactElement => {
         </div>
 
         <div className={styles.item_trackname}>
-          <Text size="$lg" weight="bold">
+          <Text size="$lg" weight="medium">
             {props.track.track.name}
           </Text>
         </div>

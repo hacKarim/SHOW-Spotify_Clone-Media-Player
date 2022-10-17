@@ -10,9 +10,7 @@ import {
   Row,
   Text,
 } from "@nextui-org/react";
-import { cp } from "fs/promises";
 import { ReactElement, useState } from "react";
-import { Track } from "../playlist/body/Track";
 import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
 
@@ -40,7 +38,6 @@ export const Albums = MotionHoc((props: any): ReactElement => {
     };
     return temp;
   });
-
 
   return (
     <>
@@ -70,7 +67,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
                 <Col>
                   <Text
                     size={12}
-                    weight="bold"
+                    weight="medium"
                     transform="uppercase"
                     color="#ffffffAA"
                   >
@@ -104,9 +101,6 @@ export const Albums = MotionHoc((props: any): ReactElement => {
               objectFit="cover"
             />
           )}
-          
-          
-          
 
           {/* <Track track={tracks[0].track}></Track> */}
         </Modal.Body>

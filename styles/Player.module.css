@@ -20,7 +20,7 @@
 }
 
 .player__control_panel {
-    width: 80%;
+    width: 50%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -33,16 +33,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 150px;
-    min-width: 150px;
+    max-width: 200px;
+    min-width: 200px;
 
     padding-right: 20px;
 }
 
 .player__song_info_wrapper {
 
-    min-width: 150px;
-    max-width: 150px;
+    min-width: 200px;
+    max-width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,23 +50,35 @@
 }
 
 .track__cover_art_image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 10px;
     margin: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .track__cover_art_image, .player__song_info_wrapper, .player__additional_buttons {
+        width: 100px;
+        height: 100px;
+    }
+
+    .player__song_info, .player__song_info_wrapper, .player__additional_buttons {
+        display: none;
+    }
+
+    .player__control_panel {
+        width: 100%;
+    }
+
+    .player__progress {
+        border-radius: 0;
+    }
 }
 
 .player__song_info {
     flex-grow: 1;
     text-align: center;
-
 }
-
-.track__title {}
-
-.track__authors {}
-
-.overflow_ellipsis {}
 
 .player__time {
     font-size: ms(-1);

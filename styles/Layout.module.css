@@ -3,13 +3,12 @@
      grid-template-rows: 1fr auto auto;
  
      grid-template-areas:
-     "mainView"
-     "playerFooter"
-     "navBar";
+     "navBar mainView"
+     "playerFooter playerFooter"
     } 
     .SideBar
     {
-        display: none;
+        /* display: none; */
     }
  }
  
@@ -47,7 +46,8 @@
  
  .playerFooter {
      grid-area: playerFooter;
-     border-top: 1px dotted grey;
+     box-shadow: 0px -15px 20px 0px #0000000d;
+     z-index: 999;
  }
    
    
