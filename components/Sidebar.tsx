@@ -120,7 +120,7 @@ const Sidebar = MotionHoc(() => {
                       <FiMusic />
                     </span>
                     <span className={styles.navbar__text}>Songs</span>
-                  </Text>{" "}
+                  </Text>
                 </a>
               </Link>
             </li>
