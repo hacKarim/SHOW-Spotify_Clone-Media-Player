@@ -6,14 +6,14 @@ import MotionHoc from "./../common/MotionHoc";
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
-  const [selectedAlbum, setSelectedAlbum] = useState<any>(null);
+  const [selectedAlbum, setSelectedAlbum] = useState<any>(undefined);
 
   const handler = (track: any) => {
     setSelectedAlbum(track);
   };
 
   const closeHandler = () => {
-    setSelectedAlbum(null);
+    setSelectedAlbum(undefined);
   };
 
   const tracks = playlist.tracks.map((element: any) => {

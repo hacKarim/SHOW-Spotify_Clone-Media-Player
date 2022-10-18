@@ -1,15 +1,9 @@
-import { Card, Grid, Image, Modal, Row, Text } from "@nextui-org/react";
+import { Card, Grid, Row, Text } from "@nextui-org/react";
 import { ReactElement, useState } from "react";
 import MotionHoc from "./../common/MotionHoc";
 
 export const Artists = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
-
-  const [selectedAlbum, setSelectedAlbum] = useState();
-
-  const closeHandler = () => {
-    setSelectedAlbum(null);
-  };
 
   const tracks = playlist.tracks.map((element: any) => {
     let temp = {
@@ -50,27 +44,6 @@ export const Artists = MotionHoc((props: any): ReactElement => {
             </Grid>
           ))}
       </Grid.Container>
-
-      <Modal
-        closeButton
-        blur
-        width="fit-content"
-        open={selectedAlbum != null ? true : false}
-        onClose={closeHandler}
-        noPadding
-        style={{ paddingTop: 0 }}
-      >
-        <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
-          {selectedAlbum && (
-            <Image
-              layout="fill"
-              src={selectedAlbum ? selectedAlbum.cover : ""}
-              objectFit="cover"
-              alt={selectedAlbum ? selectedAlbum.album : ""}
-            />
-          )}
-        </Modal.Body>
-      </Modal>
     </>
   );
 });
