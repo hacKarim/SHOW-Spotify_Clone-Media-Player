@@ -20,7 +20,7 @@ import MotionHoc from "./common/MotionHoc";
 import Logo from "./navigation/Logo";
 import { useFav } from "../context/favoritesContext";
 
-const Sidebar = MotionHoc((props) => {
+const Sidebar = MotionHoc(() => {
   const { theme, setTheme } = useNextTheme();
   const router = useRouter();
   const { fav, favNumber } = useFav();
