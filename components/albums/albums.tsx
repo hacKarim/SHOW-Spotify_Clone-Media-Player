@@ -64,7 +64,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
             />
           )}
         </Modal.Body>
-      </Modal>{" "}
+      </Modal>
     </>
   );
 });

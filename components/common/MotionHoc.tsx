@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const MotionHoc = (Component: any) => (pageProps: any) => {
+const MotionHoc = (Component: any) => (props: any) => {
   return (
     <motion.div
       initial={{ x: -100, opacity: 0, width: "100%" }}
@@ -8,7 +8,7 @@ const MotionHoc = (Component: any) => (pageProps: any) => {
       exit={{ x: -100, opacity: 0 }}
       transition={{ ease: "easeOut", duration: 0.1 }}
     >
-      <Component {...pageProps} />
+      <Component {...props} />
     </motion.div>
   );
 };

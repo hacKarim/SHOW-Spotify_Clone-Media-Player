@@ -15,10 +15,10 @@ import {
   FiSun,
   FiUser,
 } from "react-icons/fi";
-import styles from "../styles/Sidebar.module.css";
-import MotionHoc from "./common/MotionHoc";
-import Logo from "./navigation/Logo";
-import { useFav } from "../context/favoritesContext";
+import styles from "./Sidebar.module.css";
+import MotionHoc from "./../common/MotionHoc";
+import Logo from "./Logo";
+import { useFav } from "./../../context/favoritesContext";
 
 const Sidebar = MotionHoc(() => {
   const { theme, setTheme } = useNextTheme();
@@ -37,21 +37,21 @@ const Sidebar = MotionHoc(() => {
             <Logo />
           </div>
 
-          <ul className={styles.navbar__group}>
+          <ul className={styles.group}>
             <li className={router.asPath == "/" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/"}>
+              <Link className={styles.link} href={"/"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiHome />
                     </span>
-                    <span className={styles.navbar__text}>Home</span>
+                    <span className={styles.text}>Home</span>
                   </Text>
                 </a>
               </Link>
             </li>
             <li className={router.asPath == "/favorites" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/favorites"}>
+              <Link className={styles.link} href={"/favorites"}>
                 <a>
                   <Text h3>
                     <Badge
@@ -63,74 +63,74 @@ const Sidebar = MotionHoc(() => {
                       content={favNumber}
                       isInvisible={favNumber == 0}
                     >
-                      <span className={styles.navbar__icon}>
+                      <span className={styles.icon}>
                         <FiHeart />
                       </span>
                     </Badge>
 
-                    <span className={styles.navbar__text}>Favorites</span>
+                    <span className={styles.text}>Favorites</span>
                   </Text>
                 </a>
               </Link>
             </li>
           </ul>
-          <ul className={styles.navbar__group}>
-            <Text className={styles.navbar__group__header}>LIBRARY</Text>
+          <ul className={styles.group}>
+            <Text className={styles.header}>LIBRARY</Text>
             <li className={router.asPath == "/albums" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/albums"}>
+              <Link className={styles.link} href={"/albums"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiDisc />
                     </span>
-                    <span className={styles.navbar__text}>Albums</span>
+                    <span className={styles.text}>Albums</span>
                   </Text>{" "}
                 </a>
               </Link>
             </li>
             <li className={router.asPath == "/playlists" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/playlists"}>
+              <Link className={styles.link} href={"/playlists"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiList />
                     </span>
-                    <span className={styles.navbar__text}>Playlists</span>
+                    <span className={styles.text}>Playlists</span>
                   </Text>{" "}
                 </a>
               </Link>
             </li>
             <li className={router.asPath == "/artists" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/artists"}>
+              <Link className={styles.link} href={"/artists"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiUser />
                     </span>
-                    <span className={styles.navbar__text}>Artists</span>
+                    <span className={styles.text}>Artists</span>
                   </Text>{" "}
                 </a>
               </Link>
             </li>
             <li className={router.asPath == "/songs" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/songs"}>
+              <Link className={styles.link} href={"/songs"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiMusic />
                     </span>
-                    <span className={styles.navbar__text}>Songs</span>
+                    <span className={styles.text}>Songs</span>
                   </Text>
                 </a>
               </Link>
             </li>
           </ul>
-          <ul className={styles.navbar__group}>
-            <Text className={styles.navbar__group__header}>PREFERENCES</Text>
+          <ul className={styles.group}>
+            <Text className={styles.header}>PREFERENCES</Text>
             <li>
               <Text h3 style={{ cursor: "pointer" }}>
                 <span
-                  className={styles.navbar__icon}
+                  className={styles.icon}
                   onClick={(e: any) =>
                     setTheme(theme == "light" ? "dark" : "light")
                   }
@@ -160,7 +160,7 @@ const Sidebar = MotionHoc(() => {
                     </svg>
                   }
                   checked={useNextTheme().theme == "dark" ? true : false}
-                  className={styles.navar__themeswitch}
+                  className={styles.theme_switcher}
                   onChange={(e: any) =>
                     setTheme(e.target.checked ? "dark" : "light")
                   }
@@ -168,13 +168,13 @@ const Sidebar = MotionHoc(() => {
               </Text>
             </li>
             <li className={router.asPath == "/about" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/about"}>
+              <Link className={styles.link} href={"/about"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
+                    <span className={styles.icon}>
                       <FiGithub />
                     </span>
-                    <span className={styles.navbar__text}>About</span>
+                    <span className={styles.text}>About</span>
                   </Text>
                 </a>
               </Link>

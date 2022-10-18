@@ -61,6 +61,6 @@
     /* height: 100vh; */
     width: 100vw;
     transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    backdrop-filter: saturate(180%) blur(100px);
+    /* backdrop-filter: saturate(180%) blur(100px); */
     /* background: rgba(132, 132, 132, 0.1); */
 }

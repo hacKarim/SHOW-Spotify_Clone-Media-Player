@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ReactElement } from "react";
 
-import styles from "./../../../styles/Case.module.css";
+import styles from "./Case.module.css";
 
 export const AlbumCase = (props: any): ReactElement => {
   return (
@@ -16,15 +16,11 @@ export const AlbumCase = (props: any): ReactElement => {
         styles.items_center
       }
     >
-      <div className={styles.disk_container}>
+      <div className={styles.container}>
         <div className={styles.disk + " " + styles.show_side}>
           <div
             className={
-              styles.disk_face +
-              " " +
-              styles.disk_cover +
-              " " +
-              styles.shadow_2xl
+              styles.face + " " + styles.cover + " " + styles.shadow_2xl
             }
           >
             <div className={styles.bottom}>
@@ -35,7 +31,7 @@ export const AlbumCase = (props: any): ReactElement => {
               />
             </div>
           </div>
-          <div className={styles.disk_side + " " + styles.shadow_2xl}>
+          <div className={styles.side + " " + styles.shadow_2xl}>
             <div
               className={
                 styles.top +
@@ -61,7 +57,7 @@ export const AlbumCase = (props: any): ReactElement => {
               <h4>{props.track.album}</h4>
             </div>
           </div>
-          <div className={styles.disk_face + " " + styles.disk_back}></div>
+          <div className={styles.face + " " + styles.back}></div>
         </div>
       </div>
     </div>

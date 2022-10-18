@@ -4,7 +4,7 @@ import { useTheme as useNextTheme } from "next-themes";
 import { ReactElement, useEffect, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { usePlay } from "./../../context/playerContext";
-import styles from "./../../styles/Player.module.css";
+import styles from "./Player.module.css";
 
 import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
@@ -46,7 +46,7 @@ export const Player = (props: any): ReactElement => {
             }}
           >
             <div
-              className={styles.player__background}
+              className={styles.background}
               style={{
                 background: "url('" + song.album.images[0].url + "')",
               }}
@@ -72,18 +72,18 @@ export const Player = (props: any): ReactElement => {
               </div>
               <div
                 className={
-                  styles.player__body +
-                  (isOpen ? " " + styles.player__body__open : "")
+                  styles.player_container +
+                  (isOpen ? " " + styles.player_open : "")
                 }
               >
-                <div className={styles.player__song_info_wrapper}>
+                <div className={styles.infos}>
                   <img
-                    className={styles.track__cover_art_image}
+                    className={styles.cover_image}
                     src={song.album.images[0].url}
                     alt={song.album.name}
                   />
                 </div>
-                <div className={styles.player__control_panel}>
+                <div className={styles.controller}>
                   <Progress
                     value={10}
                     animated
@@ -91,7 +91,7 @@ export const Player = (props: any): ReactElement => {
                     // shadow
                     indeterminated={play ? true : false}
                     color="success"
-                    className={styles.player__progress}
+                    className={styles.progressbar}
                   />
                   <div className={styles.player__song_info}>
                     <p
@@ -132,7 +132,7 @@ export const Player = (props: any): ReactElement => {
                     </div>
                   </div>
                 </div>
-                <div className={styles.player__additional_buttons}></div>
+                <div className={styles.extra}></div>
               </div>
             </div>
           </motion.div>

@@ -13,7 +13,7 @@
     min-height: 100px;
 }
 
-.player__background {
+.background {
     background-size: cover !important;
     background-repeat: no-repeat !important;
     filter: blur(100px);
@@ -23,14 +23,14 @@
     position: absolute;
 }
 
-.player__body {
+.player_container {
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.player__body__open {
+.player_open {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     backdrop-filter: blur(100px);
 }
 
-.player__body__open .player__song_info_wrapper, .player__body__open .track__cover_art_image, .player__body__open .track__cover_art_image img {
+.player_open .infos, .player_open .cover_image, .player_open .cover_image img {
     max-width: unset;
     min-width: unset;
     min-height: unset;
@@ -49,30 +49,30 @@
     height: unset;
 }
 
-.player__body__open .player__song_info, .player__body__open .player__song_info_wrapper {
+.player_open .player__song_info, .player_open .infos {
     display: block;
 }
 
-.player__body__open .player__song_info_wrapper {
+.player_open .infos {
     display: block;
     margin: 0 auto;
 
 
 }
 
-.player__body__open .track__cover_art_image {
+.player_open .cover_image {
     max-width: 80vw;
     max-height: 50vh;
     margin: 0 auto;
 }
 
-.player__control_panel svg {
+.controller svg {
     width: 100px;
     height: 50px;
     padding: 2px;
 }
 
-.player__control_panel svg:hover {
+.controller svg:hover {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.2));
     padding: 0px;
     transition-property: padding;
@@ -80,7 +80,7 @@
     cursor: pointer;
 }
 
-.player__control_panel {
+.controller {
     width: 50%;
     display: flex;
     align-items: center;
@@ -90,7 +90,7 @@
     justify-content: center;
 }
 
-.player__additional_buttons {
+.extra {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,7 +100,7 @@
     padding-right: 20px;
 }
 
-.player__song_info_wrapper {
+.infos {
 
     min-width: 200px;
     max-width: 200px;
@@ -110,7 +110,7 @@
 
 }
 
-.track__cover_art_image {
+.cover_image {
     width: 150px;
     height: 150px;
     border-radius: 10px;
@@ -119,27 +119,27 @@
 
 @media screen and (max-width: 800px) {
 
-    .player__song_info_wrapper, .player__additional_buttons {
+    .infos, .extra {
         width: 100px;
         height: 100px;
     }
 
-    .player__song_info, .player__song_info_wrapper, .player__additional_buttons {
+    .player__song_info, .infos, .extra {
         display: none;
     }
 
-    .player__control_panel {
+    .controller {
         width: 100%;
     }
 
-    .player__progress {
+    .progressbar {
         border-radius: 0;
 
     }
 }
 
-.player__progress {
-    filter: saturate(0) blur(2px);
+.progressbar {
+    filter: saturate(0);
     opacity: 0.2;
 }
 

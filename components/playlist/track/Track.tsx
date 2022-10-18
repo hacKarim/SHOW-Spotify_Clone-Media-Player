@@ -13,14 +13,12 @@ import { FaPause, FaPlay } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { useFav } from "./../../../context/favoritesContext";
 import { usePlay } from "./../../../context/playerContext";
-import styles from "./../../../styles/Track.module.css";
+import styles from "./Track.module.css";
 
 export const Track = (props: any): ReactElement => {
   const [visible, setVisible] = useState(false);
   const { song, setSong, play, setPlay } = usePlay();
-  const [isCurrentSong, setIsCurrentSong] = useState(
-    song.id == props.track.track.id
-  );
+  const [isCurrentSong, setIsCurrentSong] = useState(song.id == props.track.id);
   const { addFav, removeFav, fav, isFav } = useFav();
   const [liked, setLiked] = useState<boolean>(props.favValue);
 
@@ -30,14 +28,14 @@ export const Track = (props: any): ReactElement => {
   };
 
   const PlayButtonBehavior = () => {
-    isCurrentSong ? setPlay(!play) : setSong(props.track.track, true);
+    isCurrentSong ? setPlay(!play) : setSong(props.track, true);
   };
   useEffect(() => {
-    setIsCurrentSong(song.id == props.track.track.id);
+    setIsCurrentSong(song.id == props.track.id);
   }, [song]);
 
   const LikeBehavior = () => {
-    liked ? removeFav(props.track.track) : addFav(props.track.track);
+    liked ? removeFav(props.track) : addFav(props.track);
     setLiked(!liked);
   };
 
@@ -47,17 +45,17 @@ export const Track = (props: any): ReactElement => {
         className={
           isCurrentSong
             ? styles.row_current
-            : props.track.track.preview_url
+            : props.track.preview_url
             ? styles.row
             : styles.row_disabled
         }
       >
-        <div className={styles.item_image}>
+        <div className={styles.image}>
           <Badge
             content={"!"}
             css={{
               p: "$2",
-              visibility: props.track.track.preview_url ? "hidden" : "visible",
+              visibility: props.track.preview_url ? "hidden" : "visible",
             }}
             color="warning"
             placement="bottom-right"
@@ -67,9 +65,7 @@ export const Track = (props: any): ReactElement => {
           >
             <div
               className={styles.cover_image}
-              onClick={() =>
-                props.track.track.preview_url && PlayButtonBehavior()
-              }
+              onClick={() => props.track.preview_url && PlayButtonBehavior()}
             >
               {!isCurrentSong ? (
                 <FaPlay className={styles.play_icon}></FaPlay>
@@ -80,34 +76,34 @@ export const Track = (props: any): ReactElement => {
               )}
 
               <img
-                src={props.track.track.album.images[0].url}
-                alt={props.track.track.album.name}
+                src={props.track.album.images[0].url}
+                alt={props.track.album.name}
               />
             </div>
           </Badge>
         </div>
 
-        <div className={styles.item_trackname}>
+        <div className={styles.title}>
           <Text size="$lg" weight="medium">
-            {props.track.track.name}
+            {props.track.name}
           </Text>
         </div>
 
-        <div className={styles.item_album}>
-          <Text>{props.track.track.album.name}</Text>
+        <div className={styles.album}>
+          <Text>{props.track.album.name}</Text>
         </div>
-        <div className={styles.item_artists}>
+        <div className={styles.artists}>
           <Avatar.Group>
-            {props.track.track.artists.map((element: any, index: any) => (
+            {props.track.artists.map((element: any, index: any) => (
               <Avatar key={index} size="md" pointer text={element.name} />
             ))}
           </Avatar.Group>
         </div>
-        <div className={styles.item_duration}>
+        <div className={styles.duration}>
           <Text>
-            {moment(props.track.track.duration_ms, "x").minutes() +
+            {moment(props.track.duration_ms, "x").minutes() +
               ":" +
-              moment(props.track.track.duration_ms, "x")
+              moment(props.track.duration_ms, "x")
                 .seconds()
                 .toLocaleString("en-US", {
                   minimumIntegerDigits: 2,
@@ -117,15 +113,15 @@ export const Track = (props: any): ReactElement => {
           <Progress
             color="primary"
             style={{
-              filter: "saturate(0) blur(2px) opacity(0.7)",
+              filter: "saturate(0)  opacity(0.7)",
             }}
-            value={props.track.track.popularity}
+            value={props.track.popularity}
             size="xs"
             animated={isCurrentSong && play ? true : false}
             indeterminated={isCurrentSong && play ? true : false}
           />
         </div>
-        <div className={styles.item_fav}>
+        <div className={styles.fav}>
           <Text>
             <FiHeart
               size={"2em"}

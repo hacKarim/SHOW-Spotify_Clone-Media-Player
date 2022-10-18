@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-.row_header {
+.header {
   align-content: center;
   align-items: center;
   display: flex;
@@ -60,41 +60,41 @@
 }
 
 .row_disabled {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
   align-content: center;
-  width: 100%;
   align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
   color: grey !important;
+  cursor: not-allowed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
   opacity: 0.5;
+  width: 100%;
 }
 
-.item_trackname {
+.title {
   flex: 1 0 15%;
   margin: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.item_album {
+.album {
   flex: 1 0 15%;
   margin: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.item_image {
+.image {
   max-width: 100px;
   margin: 5px;
   text-overflow: ellipsis;
   cursor: pointer;
 }
 
-.item_artists {
+.artists {
   flex: 0 0 15%;
   max-width: 300px;
   margin: 5px;
@@ -103,13 +103,13 @@
   text-align: right;
 }
 
-.item_fav {
+.fav {
   max-width: 200px;
   margin: 5px;
   text-overflow: ellipsis;
 }
 
-.item_duration {
+.duration {
   max-width: 200px;
   margin: 5px;
   text-overflow: ellipsis;
@@ -128,13 +128,13 @@
 }
 
 .play_icon {
+  align-items: center;
+  height: 100%;
   opacity: 0;
+  padding: 20px;
   position: absolute;
   vertical-align: center;
-  height: 100%;
-  align-items: center;
   width: 100%;
-  padding: 20px;
 }
 
 .row:hover .play_icon {
@@ -165,30 +165,30 @@
 
 @media screen and (max-width: 800px) {
 
-  .item_artists,
-  .item_duration,
-  .item_album,
-  .row_header {
+  .artists,
+  .duration,
+  .album,
+  .header {
     display: none;
   }
 }
 
 @media screen and (max-width: 900px) {
 
-  .item_artists,
-  .item_duration,
-  .row_header {
+  .artists,
+  .duration,
+  .header {
     display: none;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .item_duration {
+  .duration {
     display: none;
   }
 }
 
-.item_artists>div {
+.artists>div {
   justify-content: flex-end;
   width: 100%;
 }

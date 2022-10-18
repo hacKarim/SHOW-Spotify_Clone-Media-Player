@@ -1,8 +1,7 @@
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { AppProps } from "next/app";
-import Head from "next/head";
-import Layout from "../components/Layout";
+import Layout from "../components/navigation/Layout";
 import "../styles/globals.css";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
@@ -12,6 +11,8 @@ import { PlayerProvider } from "../context/playerContext";
 const disableselect = (e: any) => {
   return false;
 };
+
+// used to disable text selection during user interaction
 if (typeof window !== "undefined") {
   document.onselectstart = disableselect;
   document.onmousedown = disableselect;
@@ -37,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <PlayerProvider>
         <FavProvider>
           <NextThemesProvider
-            defaultTheme="system"
+            defaultTheme="light"
             attribute="class"
             value={{
               light: lightTheme.className,
@@ -45,13 +46,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             }}
           >
             <Layout>
-              <Head>
-                <title>Shotgun Player</title>
-                <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1.0"
-                />
-              </Head>
               <NextUIProvider>
                 <Component {...pageProps} />
               </NextUIProvider>

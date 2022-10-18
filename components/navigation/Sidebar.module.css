@@ -2,20 +2,16 @@
     min-width: 200px;
 }
 
-
-
-.navbar__group {
+.group {
     margin-bottom: 50px;
 }
 
-
-
-.navbar__group__header {
+.header {
     font-size: 1.5em;
     margin-bottom: 15px;
 }
 
-.navbar__text {
+.text {
     font-size: 1em;
     margin-top: -10px;
     vertical-align: top;
@@ -23,68 +19,62 @@
 }
 
 .active {
-
     border-right: 5px solid;
 }
 
-.active .navbar__text {
+.active .text {
     font-weight: bold;
 }
 
-.active .navbar__icon {
+.active .icon {
     opacity: 1;
 }
 
-.navbar__icon {
+.icon {
     opacity: 0.5;
 }
 
-.navbar__group li:hover .navbar__icon {
+.group li:hover .icon {
     opacity: 0.8;
 }
 
-
-.navbar__group li:hover .navbar__text {
+.group li:hover .text {
     font-weight: 400;
     font-size: 1em;
     transition-property: font-size;
     transition-duration: 50ms;
 }
 
-.navbar__group .active:hover .navbar__text {
+.group .active:hover .text {
     font-weight: bold !important;
 }
 
-.navbar__group li:hover .navbar__icon {
+.group li:hover .icon {
     transition-property: text-shadow;
     transition-duration: 50ms;
     text-shadow: 0px 0px 6px #82828273;
 }
 
-
-.navbar__icon {
+.icon {
     font-size: 1.2em;
     margin-right: 10px;
 }
 
-.navar__themeswitch {
+.theme_switcher {
     margin-top: 10px;
     filter: saturate(0);
-
 }
 
-.navbar__group li {
+.group li {
     height: 2.5em;
 }
 
-
-
 @media screen and (max-width: 600px) {
-    .navbar__text, .navbar__group__header, .logo, .logodark {
+    .text, .header, .logo, .logodark {
         display: none;
     }
 
-    .navbar__icon {
+    .icon {
         font-size: 1.5em;
         bottom: 10px;
     }
@@ -95,11 +85,11 @@
         margin-right: 0px;
     }
 
-    .navar__themeswitch {
+    .theme_switcher {
         display: none;
     }
 
-    .navbar__group li {
+    .group li {
         height: 3em;
         font-size: 2em;
         margin: 0 0px;
@@ -107,22 +97,19 @@
         margin-bottom: 20px;
     }
 
-    .navbar__group {
+    .group {
         margin-bottom: 100px;
         margin-top: 25px;
     }
-
-
 }
 
 @media screen and (max-width: 800px) {
-
     .navbar {
         min-width: unset;
         font-size: 0.8em;
     }
 
-    .navbar__group li {
+    .group li {
         height: 2em;
     }
 
