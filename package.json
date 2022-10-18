@@ -10,26 +10,17 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
-    "@formkit/auto-animate": "^1.0.0-beta.3",
     "@nextui-org/react": "^1.0.0-beta.10",
-    "boxicons": "^2.1.4",
-    "cookie": "^0.5.0",
     "framer-motion": "^7.5.3",
     "graphql": "^16.6.0",
-    "lodash": "^4.17.21",
-    "lodash.isequal": "^4.5.0",
     "lottie-react": "^2.3.1",
     "moment": "^2.29.4",
     "next": "12.3.1",
     "next-themes": "^0.2.1",
     "nookies": "^2.5.2",
     "react": "18.2.0",
-    "react-audio-player": "^0.17.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0",
-    "react-markdown": "^8.0.3",
-    "react-reveal": "^1.2.2",
-    "react-transition-group": "^4.4.5"
+    "react-icons": "^4.6.0"
   },
   "devDependencies": {
     "@types/node": "18.7.23",

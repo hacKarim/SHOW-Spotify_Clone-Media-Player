@@ -12,12 +12,6 @@ const disableselect = (e: any) => {
   return false;
 };
 
-// used to disable text selection during user interaction
-if (typeof window !== "undefined") {
-  document.onselectstart = disableselect;
-  document.onmousedown = disableselect;
-}
-
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: "https://spotify-graphql.shotgun.live/api",
@@ -31,6 +25,12 @@ const lightTheme = createTheme({
 const darkTheme = createTheme({
   type: "dark",
 });
+
+// used to disable text selection during user interaction
+if (typeof window !== "undefined") {
+  document.onselectstart = disableselect;
+  document.onmousedown = disableselect;
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
