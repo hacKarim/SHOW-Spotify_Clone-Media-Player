@@ -13,7 +13,6 @@ export const Player = (props): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();
   const [noSong, setNoSong] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useNextTheme();
 
   const ui_color = useNextTheme().theme == "dark" ? "white" : "black";
 

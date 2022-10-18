@@ -23,14 +23,24 @@
 }
 
 .active {
-    margin-left: 10px;
-    transition-property: margin-left;
-    transition-duration: 50ms;
+
     border-right: 5px solid;
 }
 
 .active .navbar__text {
     font-weight: bold;
+}
+
+.active .navbar__icon {
+    opacity: 1;
+}
+
+.navbar__icon {
+    opacity: 0.5;
+}
+
+.navbar__group li:hover .navbar__icon {
+    opacity: 0.8;
 }
 
 

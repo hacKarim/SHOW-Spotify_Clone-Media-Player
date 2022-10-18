@@ -1,6 +1,6 @@
 import { useTheme as useNextTheme } from "next-themes";
 
-import { Switch, Text } from "@nextui-org/react";
+import { Badge, Switch, Text } from "@nextui-org/react";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -18,10 +18,12 @@ import {
 import styles from "../styles/Sidebar.module.css";
 import MotionHoc from "./common/MotionHoc";
 import Logo from "./navigation/Logo";
+import { useFav } from "../context/favoritesContext";
 
 const Sidebar = MotionHoc((props) => {
   const { theme, setTheme } = useNextTheme();
   const router = useRouter();
+  const { fav, favNumber } = useFav();
 
   return (
     <>
@@ -52,11 +54,22 @@ const Sidebar = MotionHoc((props) => {
               <Link className={styles.navbar__link} href={"/favorites"}>
                 <a>
                   <Text h3>
-                    <span className={styles.navbar__icon}>
-                      <FiHeart />
-                    </span>
+                    <Badge
+                      color="error"
+                      variant="flat"
+                      size="md"
+                      verticalOffset="20%"
+                      horizontalOffset="20%"
+                      content={favNumber}
+                      isInvisible={favNumber == 0}
+                    >
+                      <span className={styles.navbar__icon}>
+                        <FiHeart />
+                      </span>
+                    </Badge>
+
                     <span className={styles.navbar__text}>Favorites</span>
-                  </Text>{" "}
+                  </Text>
                 </a>
               </Link>
             </li>

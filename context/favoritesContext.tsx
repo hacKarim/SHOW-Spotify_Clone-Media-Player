@@ -77,8 +77,6 @@ export function FavProvider({ children }: Props) {
     writeFavorites(favorites);
     handleFav(favorites);
 
-    // If change argument is provided, we add or remove a fav
-    // if no change argument is provided, this means this is an init, and we neeed to recalculate favNumber
     if (change != null) {
       const newNumber: number = change == true ? favNumber + 1 : favNumber - 1;
       handleFavNumber(newNumber);
@@ -86,7 +84,6 @@ export function FavProvider({ children }: Props) {
       handleFavNumber(getFavNumber(favorites));
     }
 
-    // Updating indexes
     var i: number = 0;
     for (var [key, value] of Object.entries(favorites.favlist)) {
       if (value.isFav == true) {
