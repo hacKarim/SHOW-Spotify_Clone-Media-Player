@@ -57,7 +57,6 @@ export const Player = (props: any): ReactElement => {
                 style={{
                   right: 0,
                   fontSize: "2em",
-                  right: 10,
                   top: 5,
                   cursor: "pointer",
                   position: "absolute",
