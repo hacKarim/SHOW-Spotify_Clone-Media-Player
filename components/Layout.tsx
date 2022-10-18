@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import styles from "../styles/Layout.module.css";
 import { Player } from "./player/player";
 import Sidebar from "./Sidebar";
-import { AnimatePresence } from "framer-motion";
 
 type Props = {
   children: ReactNode;

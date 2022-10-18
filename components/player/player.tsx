@@ -1,22 +1,13 @@
-import { ReactElement, useState, useEffect } from "react";
-import { Progress, Tooltip, Text } from "@nextui-org/react";
-import { useTheme as useNextTheme } from "next-themes";
-import styles from "./../../styles/Player.module.css";
-import { usePlay } from "./../../context/playerContext";
-import moment from "moment";
+import { Progress, Text } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { AiFillCaretUp } from "react-icons/ai";
-import { FaPlay, FaPause } from "react-icons/fa";
-import {
-  FiHeart,
-  FiPlay,
-  FiPause,
-  FiArrowLeft,
-  FiArrowRight,
-} from "react-icons/fi";
+import { useTheme as useNextTheme } from "next-themes";
+import { ReactElement, useEffect, useState } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
+import { usePlay } from "./../../context/playerContext";
+import styles from "./../../styles/Player.module.css";
 
+import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
-import { BsArrowUpLeftSquare, BsArrowDownSquare } from "react-icons/bs";
 
 export const Player = (props): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();

@@ -1,21 +1,6 @@
-import {
-  Button,
-  Card,
-  Checkbox,
-  Col,
-  Grid,
-  Input,
-  Modal,
-  Image,
-  Row,
-  Text,
-  Avatar,
-} from "@nextui-org/react";
+import { Card, Grid, Image, Modal, Row, Text } from "@nextui-org/react";
 import { ReactElement, useState } from "react";
-import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
-import { Track } from "../playlist/body/Track";
-import { PageHeader } from "../navigation/PageHeader";
 
 export const Artists = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);

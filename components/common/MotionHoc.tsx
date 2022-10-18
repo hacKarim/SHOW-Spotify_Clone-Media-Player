@@ -1,5 +1,3 @@
-//higher order component to add same functionality to each page
-
 import { motion } from "framer-motion";
 
 const MotionHoc = (Component) => (pageProps) => {

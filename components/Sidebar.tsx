@@ -1,24 +1,23 @@
 import { useTheme as useNextTheme } from "next-themes";
 
 import { Switch, Text } from "@nextui-org/react";
+import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import {
+  FiDisc,
+  FiGithub,
+  FiHeart,
+  FiHome,
+  FiList,
+  FiMoon,
+  FiMusic,
+  FiSun,
+  FiUser,
+} from "react-icons/fi";
 import styles from "../styles/Sidebar.module.css";
 import MotionHoc from "./common/MotionHoc";
-import {
-  FiHome,
-  FiBarChart,
-  FiHeart,
-  FiList,
-  FiMusic,
-  FiUser,
-  FiDisc,
-  FiSun,
-  FiMoon,
-  FiGithub,
-} from "react-icons/fi";
-import { useRouter } from "next/router";
 import Logo from "./navigation/Logo";
-import { AnimatePresence } from "framer-motion";
 
 const Sidebar = MotionHoc((props) => {
   const { theme, setTheme } = useNextTheme();

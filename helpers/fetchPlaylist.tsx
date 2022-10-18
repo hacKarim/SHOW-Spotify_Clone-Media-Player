@@ -1,6 +1,5 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
 import { PlaylistData } from "./types";
-import nookies from "nookies";
 
 export async function fetchPlaylist(): Promise<PlaylistData> {
   try {
@@ -11,7 +10,7 @@ export async function fetchPlaylist(): Promise<PlaylistData> {
 
     const { data } = await client.query({
       query: gql`
-        query getUrl {
+        query getData {
           playlist {
             name
             images {
