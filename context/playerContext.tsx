@@ -147,7 +147,7 @@ export function PlayerProvider({ children }: Props) {
   const playSong = async () => {
     try {
       await refPlayer.current.play();
-    } catch (e) {
+    } catch (e: any) {
       refPlayer.current.pause();
       console.log("error while trying to play song: ", e);
       setPlay(false);

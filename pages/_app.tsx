@@ -9,7 +9,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { FavProvider } from "../context/favoritesContext";
 import { PlayerProvider } from "../context/playerContext";
 
-const disableselect = (e) => {
+const disableselect = (e: any) => {
   return false;
 };
 if (typeof window !== "undefined") {

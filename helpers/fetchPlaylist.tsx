@@ -46,7 +46,7 @@ export async function fetchPlaylist(): Promise<PlaylistData> {
     });
 
     return data.playlist;
-  } catch (e) {
+  } catch (e: any) {
     console.error("Could not retrieve graphQL data: ", e);
     return Promise.reject();
   }

@@ -36,11 +36,11 @@ type Props = {
 };
 
 export function initFavorites(playlist: PlaylistData): Favorites {
-  // var favList = tracks.map((e) => { e.id: false })
+  // var favList = tracks.map((e:any) => { e.id: false })
   var favorites: Favorites = { favlist: {}, totalLength: 0 };
   var i: number = 0;
 
-  playlist.tracks.map((e) => {
+  playlist.tracks.map((e: any) => {
     favorites.favlist[e.track.id] = { isFav: false, index: i++ };
   });
 
@@ -56,7 +56,7 @@ export function fetchFavorites(
   try {
     var favorites: Favorites = JSON.parse(nookies.get(context).favorites);
     return favorites;
-  } catch (e) {}
+  } catch (e: any) {}
 
   return initFavorites(playlist);
 }
@@ -64,7 +64,7 @@ export function fetchFavorites(
 export function writeFavorites(favorites: Favorites) {
   try {
     nookies.set(null, "favorites", JSON.stringify(favorites), { path: "/" });
-  } catch (e) {
+  } catch (e: any) {
     console.error("Can't write fav");
   }
 }

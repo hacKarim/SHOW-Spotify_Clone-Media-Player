@@ -15,7 +15,7 @@ const ArtistsPage: NextPage<Props> = (props: any) => {
   const { setFav } = useFav();
 
   useEffect(() => {
-    initQueue(props.playlist.tracks.map((e) => e.track));
+    initQueue(props.playlist.tracks.map((e: any) => e.track));
     setFav(props.favorites);
   }, []);
 

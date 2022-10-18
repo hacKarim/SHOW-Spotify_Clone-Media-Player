@@ -131,7 +131,9 @@ const Sidebar = MotionHoc(() => {
               <Text h3 style={{ cursor: "pointer" }}>
                 <span
                   className={styles.navbar__icon}
-                  onClick={(e) => setTheme(theme == "light" ? "dark" : "light")}
+                  onClick={(e: any) =>
+                    setTheme(theme == "light" ? "dark" : "light")
+                  }
                 >
                   {useNextTheme().theme == "dark" ? (
                     <FiMoon />
@@ -159,7 +161,7 @@ const Sidebar = MotionHoc(() => {
                   }
                   checked={useNextTheme().theme == "dark" ? true : false}
                   className={styles.navar__themeswitch}
-                  onChange={(e) =>
+                  onChange={(e: any) =>
                     setTheme(e.target.checked ? "dark" : "light")
                   }
                 />
