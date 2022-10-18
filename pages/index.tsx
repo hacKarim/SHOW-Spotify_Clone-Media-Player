@@ -11,7 +11,7 @@ import { PlaylistData, Props } from "../helpers/types";
 import { useFav } from "./../context/favoritesContext";
 import { usePlay } from "./../context/playerContext";
 
-const Home: NextPage<Props> = (props) => {
+const Home: NextPage<Props> = (props: any) => {
   const { initQueue } = usePlay();
   const { setFav } = useFav();
 

@@ -15,7 +15,7 @@ import { useFav } from "./../../../context/favoritesContext";
 import { usePlay } from "./../../../context/playerContext";
 import styles from "./../../../styles/Track.module.css";
 
-export const Track = (props): ReactElement => {
+export const Track = (props: any): ReactElement => {
   const [visible, setVisible] = useState(false);
   const { song, setSong, play, setPlay } = usePlay();
   const [isCurrentSong, setIsCurrentSong] = useState(

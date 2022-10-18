@@ -10,7 +10,7 @@ import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import Image from "next/image";
 
-export const Player = (props): ReactElement => {
+export const Player = (props: any): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();
   const [noSong, setNoSong] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState(false);

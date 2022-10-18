@@ -10,7 +10,7 @@ import { usePlay } from "./../../context/playerContext";
 import { fetchPlaylist } from "./../../helpers/fetchPlaylist";
 import { PlaylistData, Props } from "./../../helpers/types";
 
-const AlbumsPage: NextPage<Props> = (props) => {
+const AlbumsPage: NextPage<Props> = (props: any) => {
   const { initQueue } = usePlay();
   const { setFav } = useFav();
 
