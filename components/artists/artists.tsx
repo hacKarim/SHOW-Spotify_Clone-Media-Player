@@ -21,7 +21,7 @@ export const Artists = MotionHoc((props: any): ReactElement => {
     <>
       <Grid.Container gap={2} justify="flex-start">
         {tracks
-          .sort((a, b) => 0.5 - Math.random())
+          .sort(() => 0.5 - Math.random())
           .map((track: any, index: number) => (
             <Grid xs={6} sm={4} md={3} lg={2} xl={2} key={index}>
               <Card isPressable>
