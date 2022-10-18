@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ReactElement } from "react";
 
 import styles from "./../../../styles/Case.module.css";
@@ -27,7 +28,7 @@ export const AlbumCase = (props: any): ReactElement => {
             }
           >
             <div className={styles.bottom}>
-              <img src={props.track.cover} />
+              <Image alt={props.track.album} src={props.track.cover} />
             </div>
           </div>
           <div className={styles.disk_side + " " + styles.shadow_2xl}>

@@ -7,6 +7,7 @@ import {
   Text,
 } from "@nextui-org/react";
 import moment from "moment";
+import Image from "next/image";
 import { ReactElement, useEffect, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
@@ -78,7 +79,10 @@ export const Track = (props): ReactElement => {
                 <FaPlay className={styles.play_icon}></FaPlay>
               )}
 
-              <img src={props.track.track.album.images[0].url}></img>
+              <Image
+                src={props.track.track.album.images[0].url}
+                alt={props.track.track.album.name}
+              />
             </div>
           </Badge>
         </div>
@@ -146,8 +150,9 @@ export const Track = (props): ReactElement => {
         </Modal.Header>
         <Modal.Body>
           <Text>
-            The track you're trying to listen to is unavailable in your current
-            plan / country.
+            {
+              "The track you're trying to listen to is unavailable in your current plan or country."
+            }
           </Text>
           <Text>Please upgrade to unlock all tracks.</Text>
         </Modal.Body>

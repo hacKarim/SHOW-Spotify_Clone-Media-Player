@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const MotionHoc = (Component) => (pageProps) => {
+const MotionHoc = (Component: any) => (pageProps: any) => {
   return (
     <motion.div
       initial={{ x: -100, opacity: 0, width: "100%" }}

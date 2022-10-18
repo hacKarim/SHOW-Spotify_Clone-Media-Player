@@ -5,18 +5,11 @@ import MotionHoc from "./../common/MotionHoc";
 export const Artists = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
-
-  const handler = (track: any) => {
-    setSelectedAlbum(track);
-    track;
-  };
+  const [selectedAlbum, setSelectedAlbum] = useState();
 
   const closeHandler = () => {
     setSelectedAlbum(null);
   };
-
-  const colors = ["gradient", "primary", "secondary"];
 
   const tracks = playlist.tracks.map((element: any) => {
     let temp = {
@@ -72,6 +65,7 @@ export const Artists = MotionHoc((props: any): ReactElement => {
             <Image
               src={selectedAlbum ? selectedAlbum.cover : ""}
               objectFit="cover"
+              alt={selectedAlbum ? selectedAlbum.album : ""}
             />
           )}
         </Modal.Body>

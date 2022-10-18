@@ -8,6 +8,7 @@ import styles from "./../../styles/Player.module.css";
 
 import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
+import Image from "next/image";
 
 export const Player = (props): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();
@@ -78,7 +79,7 @@ export const Player = (props): ReactElement => {
                 }
               >
                 <div className={styles.player__song_info_wrapper}>
-                  <img
+                  <Image
                     className={styles.track__cover_art_image}
                     src={song.album.images[0].url}
                     alt={song.album.name}
