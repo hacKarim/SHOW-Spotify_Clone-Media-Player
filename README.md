@@ -8,8 +8,10 @@
 
 In this example, i'll try to make a better version of Shotgun technical case.
 
-## 📄 Test description
+## ▶️ Demo
+> https://guelguin.github.io/Spotify-Clone-Media-Player/
 
+## 📄 Test description
 > https://shotguntheapp.notion.site/Case-Study-Spotify-Player-7f8417391b9e43ba9f351870949a0559
 
 ## ‍💻 Advancement
