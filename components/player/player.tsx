@@ -8,7 +8,6 @@ import styles from "./../../styles/Player.module.css";
 
 import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
-import Image from "next/image";
 
 export const Player = (props: any): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();

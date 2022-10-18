@@ -30,7 +30,7 @@ const ArtistsPage: NextPage<Props> = (props: any) => {
   );
 };
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
   var playlistData: PlaylistData = await fetchPlaylist();
   var favorites = fetchFavorites(context, playlistData);
 
