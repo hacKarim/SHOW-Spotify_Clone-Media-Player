@@ -15,6 +15,7 @@ import { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
 import { Track } from "../playlist/body/Track";
+import { PageHeader } from "../navigation/PageHeader";
 
 export const Artists = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -46,8 +47,6 @@ export const Artists = MotionHoc((props: any): ReactElement => {
 
   return (
     <>
-      <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-
       <Grid.Container gap={2} justify="flex-start">
         {tracks
           .sort((a, b) => 0.5 - Math.random())

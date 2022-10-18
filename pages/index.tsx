@@ -9,6 +9,7 @@ import { fetchPlaylist } from "../helpers/fetchPlaylist";
 import { fetchFavorites } from "../context/favoritesContext";
 import { usePlay } from "./../context/playerContext";
 import { useFav } from "./../context/favoritesContext";
+import { PageHeader } from "../components/navigation/PageHeader";
 
 const Home: NextPage<Props> = (props) => {
   const { initQueue } = usePlay();
@@ -21,6 +22,7 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <div className={styles.container}>
+      <PageHeader text={props.playlist.name}></PageHeader>
       <main className={styles.main}>
         <Playlist
           playlist={props.playlist}

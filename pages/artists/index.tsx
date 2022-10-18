@@ -11,6 +11,7 @@ import { usePlay } from "./../../context/playerContext";
 import { useFav } from "./../../context/favoritesContext";
 import { Albums } from "../../components/albums/albums";
 import { Artists } from "../../components/artists/artists";
+import { PageHeader } from "../../components/navigation/PageHeader";
 
 const ArtistsPage: NextPage<Props> = (props) => {
   const { initQueue } = usePlay();
@@ -23,6 +24,8 @@ const ArtistsPage: NextPage<Props> = (props) => {
 
   return (
     <div className={styles.container}>
+      <PageHeader text="Artists"></PageHeader>
+
       <main className={styles.main}>
         <Artists playlist={props.playlist}></Artists>
       </main>

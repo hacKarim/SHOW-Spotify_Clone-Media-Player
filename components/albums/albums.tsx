@@ -14,6 +14,7 @@ import { ReactElement, useState } from "react";
 import { PlaylistHeader } from "./header/header";
 import MotionHoc from "./../common/MotionHoc";
 import { AlbumCase } from "../albums/case/case";
+import { PageHeader } from "../navigation/PageHeader";
 
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -42,7 +43,6 @@ export const Albums = MotionHoc((props: any): ReactElement => {
 
   return (
     <>
-      <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <Grid.Container gap={4} justify="flex-start">
         {tracks.map((track: any, index: number) => (
           <Grid

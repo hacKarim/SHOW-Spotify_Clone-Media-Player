@@ -1,22 +1,20 @@
 import { Table, Text, User } from "@nextui-org/react";
 import React, { ReactElement, useState, useEffect } from "react";
 import { Track } from "./body/Track";
-import { PlaylistHeader } from "./header/header";
 import { usePlay } from "../../context/playerContext";
 import MotionHoc from "./../common/MotionHoc";
 import styles from "./../../styles/Track.module.css";
 import { FiHeart } from "react-icons/fi";
 import { useFav } from "../../context/favoritesContext";
+import { PageHeader } from "../navigation/PageHeader";
 
 export const Playlist = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
   return (
     <>
-      <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <div className={styles.row_header}>
         <div className={styles.item_image} style={{ width: 64 }}></div>
-
         <div className={styles.item_trackname}>
           <Text h4>Title</Text>
         </div>

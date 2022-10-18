@@ -1,59 +1,66 @@
 @media screen and (max-width: 600px) {
     .Root {
-     grid-template-rows: 1fr auto auto;
- 
-     grid-template-areas:
-     "navBar mainView"
-     "playerFooter playerFooter"
-    } 
- }
- 
- @media screen and (min-width: 601px) {
-     .Root {
-      grid-template-columns: auto 1fr;
-      grid-template-rows: 1fr auto;
-      grid-template-areas:
-      "navBar mainView"
-      "playerFooter playerFooter";
-     } 
-    
-  }
- 
- .Root {
-     display: grid;
-     position: absolute;
-     top: 0; right: 0; left: 0; bottom: 0;
-     overflow: hidden;
-     height: 100vh;
- 
- }
-   
- .MainView {
-     overflow-y: scroll;
-     overflow-x: hidden;
-     vertical-align: baseline;
-     grid-area: mainView;
-     padding: 20px;
-     padding-bottom: 190px;
- }
- 
- .SideBar {
-     grid-area: navBar;
-     overflow-y: scroll;
-     overflow-x: hidden;
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: auto 1fr;
+
+        grid-template-areas:
+            "navBar mainView"
+            "playerFooter playerFooter"
+    }
+
+    .SideBar {
+        max-width: 80px;
+    }
 }
- 
- .playerFooter {
-     grid-area: playerFooter;
-     /* box-shadow: 0px -15px 20px 0px #0000000d; */
-     z-index: 999999999999999999;
-     position: fixed;
-     bottom: 0;
-     /* height: 100vh; */
-     width: 100vw;
-     transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-     backdrop-filter: saturate(180%) blur(100px);
-     /* background: rgba(132, 132, 132, 0.1); */
- }
-   
-   
+
+@media screen and (min-width: 601px) {
+    .Root {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas:
+            "navBar mainView"
+            "playerFooter playerFooter";
+    }
+
+}
+
+.Root {
+    display: grid;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.MainView {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    vertical-align: baseline;
+    grid-area: mainView;
+    padding: 20px;
+    padding-bottom: 190px;
+}
+
+.SideBar {
+    grid-area: navBar;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.playerFooter {
+    grid-area: playerFooter;
+    /* box-shadow: 0px -15px 20px 0px #0000000d; */
+    z-index: 999999999999999999;
+    position: fixed;
+    bottom: 0;
+    /* height: 100vh; */
+    width: 100vw;
+    transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    backdrop-filter: saturate(180%) blur(100px);
+    /* background: rgba(132, 132, 132, 0.1); */
+}
