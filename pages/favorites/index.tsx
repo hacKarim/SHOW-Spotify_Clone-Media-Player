@@ -23,13 +23,11 @@ const Favorites: NextPage<Props> = (props: any) => {
     <div className={styles.container}>
       <PageHeader text="Favorites"></PageHeader>
 
-      <main className={styles.main}>
-        <Playlist
-          playlist={props.playlist}
-          favorites={props.favorites}
-          showOnlyFavorites
-        ></Playlist>
-      </main>
+      <Playlist
+        playlist={props.playlist}
+        favorites={props.favorites}
+        showOnlyFavorites
+      ></Playlist>
     </div>
   );
 };

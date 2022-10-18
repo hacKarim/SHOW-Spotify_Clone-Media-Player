@@ -22,12 +22,10 @@ const Songs: NextPage<Props> = (props: any) => {
   return (
     <div className={styles.container}>
       <PageHeader text="Songs"></PageHeader>
-      <main className={styles.main}>
-        <Playlist
-          playlist={props.playlist}
-          favorites={props.favorites}
-        ></Playlist>
-      </main>
+      <Playlist
+        playlist={props.playlist}
+        favorites={props.favorites}
+      ></Playlist>
     </div>
   );
 };

@@ -23,9 +23,7 @@ const AlbumsPage: NextPage<Props> = (props: any) => {
     <div className={styles.container}>
       <PageHeader text="Albums"></PageHeader>
 
-      <main className={styles.main}>
-        <Albums playlist={props.playlist}></Albums>
-      </main>
+      <Albums playlist={props.playlist}></Albums>
     </div>
   );
 };

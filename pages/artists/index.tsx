@@ -23,9 +23,7 @@ const ArtistsPage: NextPage<Props> = (props: any) => {
     <div className={styles.container}>
       <PageHeader text="Artists"></PageHeader>
 
-      <main className={styles.main}>
-        <Artists playlist={props.playlist}></Artists>
-      </main>
+      <Artists playlist={props.playlist}></Artists>
     </div>
   );
 };
