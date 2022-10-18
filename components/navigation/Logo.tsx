@@ -1,4 +1,3 @@
-import React from "react";
 import { useLottie } from "lottie-react";
 import logoAnimated from "./logoAnimated.json";
 

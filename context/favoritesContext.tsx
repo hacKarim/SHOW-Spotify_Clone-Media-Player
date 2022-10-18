@@ -1,12 +1,5 @@
-import {
-  createContext,
-  useState,
-  useContext,
-  ReactNode,
-  useEffect,
-  useRef,
-} from "react";
 import nookies from "nookies";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { Favorites, PlaylistData, Track } from "../helpers/types";
 
 type favContextType = {

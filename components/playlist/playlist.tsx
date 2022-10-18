@@ -1,12 +1,9 @@
-import { Table, Text, User } from "@nextui-org/react";
-import React, { ReactElement, useState, useEffect } from "react";
-import { Track } from "./body/Track";
-import { usePlay } from "../../context/playerContext";
-import MotionHoc from "./../common/MotionHoc";
-import styles from "./../../styles/Track.module.css";
+import { Text } from "@nextui-org/react";
+import { ReactElement, useState } from "react";
 import { FiHeart } from "react-icons/fi";
-import { useFav } from "../../context/favoritesContext";
-import { PageHeader } from "../navigation/PageHeader";
+import styles from "./../../styles/Track.module.css";
+import MotionHoc from "./../common/MotionHoc";
+import { Track } from "./body/Track";
 
 export const Playlist = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);

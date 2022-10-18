@@ -1,24 +1,18 @@
 import {
   Avatar,
   Badge,
-  Popover,
-  Spacer,
-  Text,
-  Grid,
-  Row,
-  Col,
-  User,
   Button,
   Modal,
   Progress,
+  Text,
 } from "@nextui-org/react";
-import { ReactElement, useState, useEffect } from "react";
-import styles from "./../../../styles/Track.module.css";
-import { FaPlay, FaPause } from "react-icons/fa";
-import { FiHeart, FiPlay, FiPause } from "react-icons/fi";
 import moment from "moment";
-import { usePlay } from "./../../../context/playerContext";
+import { ReactElement, useEffect, useState } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
 import { useFav } from "./../../../context/favoritesContext";
+import { usePlay } from "./../../../context/playerContext";
+import styles from "./../../../styles/Track.module.css";
 
 export const Track = (props): ReactElement => {
   const [visible, setVisible] = useState(false);
