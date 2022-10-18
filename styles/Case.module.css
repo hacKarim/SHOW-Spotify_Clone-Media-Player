@@ -1,19 +1,20 @@
 .full-height,
 .disk_container,
 .disk_face {
-  height: 270px;
+  height: 268px;
 }
 
 .full-width,
 .disk_container,
 .disk_face,
 .disk_cover>* {
-  width: 270px;
+  width: 268px;
   cursor: pointer;
 }
 
 .disk_container {
   perspective: 1000px;
+  filter: drop-shadow(0px 0px 10px #00000033);
 }
 
 .disk {
@@ -21,8 +22,10 @@
   transition: transform 0.5s ease;
 }
 
-.disk:hover {
-  transform: rotateY(50deg);
+
+
+.disk_container:hover .disk {
+  transform: rotateY(50deg)rotateX(10deg) rotateZ(-5deg) scale(1.1) translateY(-20px);
 }
 
 .disk_face {
@@ -42,7 +45,7 @@
 }
 
 .disk_cover>.bottom {
-  height: 288px;
+  height: 268px;
   color: #fff;
   background-color: #34495e;
 }
@@ -55,20 +58,22 @@
 .disk_side {
   position: absolute;
   height: 268px;
-  width: 30px;
+  width: 28px;
   text-align: center;
   overflow: hidden;
   transform: rotateY(-90deg) translateZ(14px) translateY(2px);
+  margin-top: -2px;
+
 }
 
 .disk_side>.top {
   height: 0px;
-  width: 30px;
+  width: 28px;
   background-color: transparent;
 }
 
 .disk_side>.bottom {
-  height: 286px;
+  height: 268px;
   width: 28px;
   color: #fff;
   writing-mode: vertical-rl;

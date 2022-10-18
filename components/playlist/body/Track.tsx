@@ -118,8 +118,13 @@ export const Track = (props): ReactElement => {
           </Text>
           <Progress
             color="primary"
+            style={{
+              filter: "saturate(0) blur(2px) opacity(0.7)",
+            }}
             value={props.track.track.popularity}
             size="xs"
+            animated={isCurrentSong && play ? true : false}
+            indeterminated={isCurrentSong && play ? true : false}
           />
         </div>
         <div className={styles.item_fav}>

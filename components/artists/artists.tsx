@@ -52,13 +52,13 @@ export const Artists = MotionHoc((props: any): ReactElement => {
         {tracks
           .sort((a, b) => 0.5 - Math.random())
           .map((track: any, index: number) => (
-            <Grid xs={12} sm={6} md={4} lg={4} xl={3} key={index}>
+            <Grid xs={6} sm={4} md={3} lg={2} xl={2} key={index}>
               <Card isPressable>
                 <Card.Body css={{ p: 10 }}>
                   <Card.Image
                     src={track.cover}
                     objectFit="cover"
-                    style={{ borderRadius: 300 }}
+                    style={{ borderRadius: 300, padding: 10 }}
                     alt={track.album.artist}
                   />
                 </Card.Body>

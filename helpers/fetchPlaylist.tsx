@@ -24,6 +24,7 @@ export async function fetchPlaylist(): Promise<PlaylistData> {
                 name
                 preview_url
                 duration_ms
+                popularity
                 artists {
                   id
                   name

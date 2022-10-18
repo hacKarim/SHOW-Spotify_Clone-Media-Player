@@ -14,6 +14,7 @@ import {
   FiDisc,
   FiSun,
   FiMoon,
+  FiGithub,
 } from "react-icons/fi";
 import { useRouter } from "next/router";
 import Logo from "./navigation/Logo";
@@ -48,18 +49,6 @@ const Sidebar = MotionHoc((props) => {
                 </a>
               </Link>
             </li>
-            <li className={router.asPath == "/charts" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/charts"}>
-                <a>
-                  <Text h3>
-                    <span className={styles.navbar__icon}>
-                      <FiBarChart />
-                    </span>
-                    <span className={styles.navbar__text}>Charts</span>
-                  </Text>{" "}
-                </a>
-              </Link>
-            </li>
             <li className={router.asPath == "/favorites" ? styles.active : ""}>
               <Link className={styles.navbar__link} href={"/favorites"}>
                 <a>
@@ -74,7 +63,7 @@ const Sidebar = MotionHoc((props) => {
             </li>
           </ul>
           <ul className={styles.navbar__group}>
-            <Text className={styles.navbar__group__header}>YOUR LIBRARY</Text>
+            <Text className={styles.navbar__group__header}>LIBRARY</Text>
             <li className={router.asPath == "/albums" ? styles.active : ""}>
               <Link className={styles.navbar__link} href={"/albums"}>
                 <a>
@@ -163,6 +152,18 @@ const Sidebar = MotionHoc((props) => {
                   }
                 />
               </Text>
+            </li>
+            <li className={router.asPath == "/about" ? styles.active : ""}>
+              <Link className={styles.navbar__link} href={"/about"}>
+                <a>
+                  <Text h3>
+                    <span className={styles.navbar__icon}>
+                      <FiGithub />
+                    </span>
+                    <span className={styles.navbar__text}>About</span>
+                  </Text>
+                </a>
+              </Link>
             </li>
           </ul>
         </nav>
