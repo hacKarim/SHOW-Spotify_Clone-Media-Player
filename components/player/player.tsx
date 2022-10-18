@@ -132,7 +132,6 @@ export const Player = (props: any): ReactElement => {
                     </div>
                   </div>
                 </div>
-
                 <div className={styles.player__additional_buttons}></div>
               </div>
             </div>
