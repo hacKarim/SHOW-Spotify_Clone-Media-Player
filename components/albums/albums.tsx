@@ -6,7 +6,7 @@ import MotionHoc from "./../common/MotionHoc";
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
 
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const [selectedAlbum, setSelectedAlbum] = useState<any>(null);
 
   const handler = (track: any) => {
     setSelectedAlbum(track);
@@ -58,6 +58,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
         <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
           {selectedAlbum && (
             <Image
+              layout="fill"
               src={selectedAlbum.cover}
               objectFit="cover"
               alt={selectedAlbum.album}

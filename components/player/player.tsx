@@ -79,7 +79,7 @@ export const Player = (props): ReactElement => {
                 }
               >
                 <div className={styles.player__song_info_wrapper}>
-                  <Image
+                  <img
                     className={styles.track__cover_art_image}
                     src={song.album.images[0].url}
                     alt={song.album.name}

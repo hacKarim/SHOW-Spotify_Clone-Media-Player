@@ -79,7 +79,7 @@ export const Track = (props): ReactElement => {
                 <FaPlay className={styles.play_icon}></FaPlay>
               )}
 
-              <Image
+              <img
                 src={props.track.track.album.images[0].url}
                 alt={props.track.track.album.name}
               />

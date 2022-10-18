@@ -28,7 +28,11 @@ export const AlbumCase = (props: any): ReactElement => {
             }
           >
             <div className={styles.bottom}>
-              <Image alt={props.track.album} src={props.track.cover} />
+              <Image
+                layout="fill"
+                alt={props.track.album}
+                src={props.track.cover}
+              />
             </div>
           </div>
           <div className={styles.disk_side + " " + styles.shadow_2xl}>

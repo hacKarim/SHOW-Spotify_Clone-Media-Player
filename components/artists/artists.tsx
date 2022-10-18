@@ -63,6 +63,7 @@ export const Artists = MotionHoc((props: any): ReactElement => {
         <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
           {selectedAlbum && (
             <Image
+              layout="fill"
               src={selectedAlbum ? selectedAlbum.cover : ""}
               objectFit="cover"
               alt={selectedAlbum ? selectedAlbum.album : ""}
