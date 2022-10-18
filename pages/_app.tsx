@@ -7,6 +7,7 @@ import Head from "next/head";
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { PlayerProvider } from "../context/playerContext";
+import { FavProvider } from "../context/favoritesContext";
 
 const disableselect = (e) => {
   return false;
@@ -34,27 +35,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <PlayerProvider>
-        <NextThemesProvider
-          defaultTheme="system"
-          attribute="class"
-          value={{
-            light: lightTheme.className,
-            dark: darkTheme.className,
-          }}
-        >
-          <Layout>
-            <Head>
-              <title>Shotgun - Playlist</title>
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1.0"
-              />
-            </Head>
-            <NextUIProvider>
-              <Component {...pageProps} />
-            </NextUIProvider>
-          </Layout>
-        </NextThemesProvider>
+        <FavProvider>
+          <NextThemesProvider
+            defaultTheme="system"
+            attribute="class"
+            value={{
+              light: lightTheme.className,
+              dark: darkTheme.className,
+            }}
+          >
+            <Layout>
+              <Head>
+                <title>Shotgun - Playlist</title>
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1.0"
+                />
+              </Head>
+              <NextUIProvider>
+                <Component {...pageProps} />
+              </NextUIProvider>
+            </Layout>
+          </NextThemesProvider>
+        </FavProvider>
       </PlayerProvider>
     </ApolloProvider>
   );

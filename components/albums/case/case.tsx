@@ -17,7 +17,7 @@ export const AlbumCase = (props: any): ReactElement => {
             <div className={styles.disk_side +" " + styles.shadow_2xl}>
               <div className={styles.top  +" "+ styles.flex +" "+ styles.justify_center +" "+ styles.items_center}></div>
               <div className={styles.bottom  +" "+ styles.flex +" "+ styles.justify_center +" "+ styles.items_center}>
-                <h3>{props.track.album}</h3>
+                <h4>{props.track.album}</h4>
               </div>
             </div>
             <div className={styles.disk_face +" "+ styles.disk_back}></div>

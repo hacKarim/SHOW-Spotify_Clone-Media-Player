@@ -23,14 +23,14 @@ export const Artists = MotionHoc((props: any): ReactElement => {
 
   const handler = (track: any) => {
     setSelectedAlbum(track);
-    (track);
+    track;
   };
 
   const closeHandler = () => {
     setSelectedAlbum(null);
   };
 
-  const colors = ["gradient", "primary", "secondary"]
+  const colors = ["gradient", "primary", "secondary"];
 
   const tracks = playlist.tracks.map((element: any) => {
     let temp = {
@@ -47,28 +47,31 @@ export const Artists = MotionHoc((props: any): ReactElement => {
   return (
     <>
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
-      
+
       <Grid.Container gap={2} justify="flex-start">
-        {tracks.sort((a, b) => 0.5 - Math.random()).map((track: any, index: number) => (
-          <Grid xs={12} sm={6} md={4} lg={4} xl={3} key={index}>
-            <Card isPressable >
-            <Card.Body css={{ p: 10 }}>
-              <Card.Image
-                src={track.cover}
-                objectFit="cover"
-                style={{borderRadius: 300}}
-                alt={track.album.artist}
-              />
-            </Card.Body>
-            <Card.Footer css={{ justifyItems: "flex-start" }}>
-              <Row wrap="wrap" justify="space-between" align="center">
-                <Text h6 style={{textAlign:"center", margin:"0 auto"}}>{track.title}</Text>
-               
-              </Row>
-            </Card.Footer>
-          </Card>
-          </Grid>
-        ))}
+        {tracks
+          .sort((a, b) => 0.5 - Math.random())
+          .map((track: any, index: number) => (
+            <Grid xs={12} sm={6} md={4} lg={4} xl={3} key={index}>
+              <Card isPressable>
+                <Card.Body css={{ p: 10 }}>
+                  <Card.Image
+                    src={track.cover}
+                    objectFit="cover"
+                    style={{ borderRadius: 300 }}
+                    alt={track.album.artist}
+                  />
+                </Card.Body>
+                <Card.Footer css={{ justifyItems: "flex-start" }}>
+                  <Row wrap="wrap" justify="space-between" align="center">
+                    <Text h6 style={{ textAlign: "center", margin: "0 auto" }}>
+                      {track.title}
+                    </Text>
+                  </Row>
+                </Card.Footer>
+              </Card>
+            </Grid>
+          ))}
       </Grid.Container>
 
       <Modal
@@ -78,18 +81,16 @@ export const Artists = MotionHoc((props: any): ReactElement => {
         open={selectedAlbum != null ? true : false}
         onClose={closeHandler}
         noPadding
-        style={{ paddingTop: 0}}
+        style={{ paddingTop: 0 }}
       >
-        <Modal.Body style={{maxWidth: "80vw",maxHeight: "80vh"}}>
+        <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
           {selectedAlbum && (
             <Image
               src={selectedAlbum ? selectedAlbum.cover : ""}
               objectFit="cover"
             />
           )}
-          
         </Modal.Body>
-        
       </Modal>
     </>
   );

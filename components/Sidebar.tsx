@@ -75,6 +75,18 @@ const Sidebar = MotionHoc((props) => {
           </ul>
           <ul className={styles.navbar__group}>
             <Text className={styles.navbar__group__header}>YOUR LIBRARY</Text>
+            <li className={router.asPath == "/albums" ? styles.active : ""}>
+              <Link className={styles.navbar__link} href={"/albums"}>
+                <a>
+                  <Text h3>
+                    <span className={styles.navbar__icon}>
+                      <FiDisc />
+                    </span>
+                    <span className={styles.navbar__text}>Albums</span>
+                  </Text>{" "}
+                </a>
+              </Link>
+            </li>
             <li className={router.asPath == "/playlists" ? styles.active : ""}>
               <Link className={styles.navbar__link} href={"/playlists"}>
                 <a>
@@ -107,19 +119,6 @@ const Sidebar = MotionHoc((props) => {
                       <FiMusic />
                     </span>
                     <span className={styles.navbar__text}>Songs</span>
-                  </Text>{" "}
-                </a>
-              </Link>
-            </li>
-
-            <li className={router.asPath == "/albums" ? styles.active : ""}>
-              <Link className={styles.navbar__link} href={"/albums"}>
-                <a>
-                  <Text h3>
-                    <span className={styles.navbar__icon}>
-                      <FiDisc />
-                    </span>
-                    <span className={styles.navbar__text}>Albums</span>
                   </Text>{" "}
                 </a>
               </Link>

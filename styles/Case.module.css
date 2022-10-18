@@ -3,10 +3,11 @@
 .disk_face {
   height: 270px;
 }
+
 .full-width,
 .disk_container,
 .disk_face,
-.disk_cover> * {
+.disk_cover>* {
   width: 270px;
   cursor: pointer;
 }
@@ -14,35 +15,43 @@
 .disk_container {
   perspective: 1000px;
 }
+
 .disk {
   transform-style: preserve-3d;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
+
 .disk:hover {
   transform: rotateY(50deg);
 }
+
 .disk_face {
   position: absolute;
   overflow: hidden;
 }
+
 .disk_cover {
   transform: translateZ(10px);
 
 }
-.disk_cover> .top {
+
+.disk_cover>.top {
   height: 52px;
   padding-left: 10px;
   background-color: transparent;
 }
-.disk_cover> .bottom {
+
+.disk_cover>.bottom {
   height: 288px;
   color: #fff;
   background-color: #34495e;
 }
+
 .disk_back {
   background-color: transparent;
   transform: rotateY(180deg) translateZ(10px);
 }
+
 .disk_side {
   position: absolute;
   height: 268px;
@@ -51,12 +60,14 @@
   overflow: hidden;
   transform: rotateY(-90deg) translateZ(14px) translateY(2px);
 }
-.disk_side> .top {
+
+.disk_side>.top {
   height: 0px;
   width: 30px;
   background-color: transparent;
 }
-.disk_side> .bottom {
+
+.disk_side>.bottom {
   height: 286px;
   width: 28px;
   color: #fff;

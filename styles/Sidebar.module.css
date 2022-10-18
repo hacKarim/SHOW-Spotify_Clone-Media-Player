@@ -59,6 +59,7 @@
 
 .navar__themeswitch {
     margin-top: 10px;
+    filter: saturate(0);
 
 }
 

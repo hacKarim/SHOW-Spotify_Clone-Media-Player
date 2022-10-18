@@ -27,7 +27,7 @@ export const Track = (props): ReactElement => {
     song.id == props.track.track.id
   );
   const { addFav, removeFav, fav, isFav } = useFav();
-  const [liked, setLiked] = useState<boolean>(true);
+  const [liked, setLiked] = useState<boolean>(props.favValue);
 
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -42,8 +42,8 @@ export const Track = (props): ReactElement => {
   }, [song]);
 
   const LikeBehavior = () => {
-    // liked ? removeFav(props.track.track) : addFav(props.track.track)
-    // setLiked(!liked)
+    liked ? removeFav(props.track.track) : addFav(props.track.track);
+    setLiked(!liked);
   };
 
   return (
@@ -101,7 +101,7 @@ export const Track = (props): ReactElement => {
         <div className={styles.item_artists}>
           <Avatar.Group>
             {props.track.track.artists.map((element, index) => (
-                  <Avatar key={index} size="md" pointer text={element.name} />
+              <Avatar key={index} size="md" pointer text={element.name} />
             ))}
           </Avatar.Group>
         </div>

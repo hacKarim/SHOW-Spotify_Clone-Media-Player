@@ -45,12 +45,20 @@ export const Albums = MotionHoc((props: any): ReactElement => {
       <PlaylistHeader playlistName={playlist.name}></PlaylistHeader>
       <Grid.Container gap={4} justify="flex-start">
         {tracks.map((track: any, index: number) => (
-          <Grid  xs={12} sm={6} md={4} lg={3} xl={2} key={index}onClick={() => handler(track)} style={{ justifyContent: "center"}} >
-            <AlbumCase track={track}  />
+          <Grid
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            xl={2}
+            key={index}
+            onClick={() => handler(track)}
+            style={{ justifyContent: "center" }}
+          >
+            <AlbumCase track={track} />
           </Grid>
         ))}
       </Grid.Container>
-
       <Modal
         closeButton
         blur
@@ -58,18 +66,17 @@ export const Albums = MotionHoc((props: any): ReactElement => {
         open={selectedAlbum != null ? true : false}
         onClose={closeHandler}
         noPadding
-        style={{ paddingTop: 0}}
+        style={{ paddingTop: 0 }}
       >
-        <Modal.Body style={{maxWidth: "80vw",maxHeight: "80vh"}}>
+        <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
           {selectedAlbum && (
             <Image
               src={selectedAlbum ? selectedAlbum.cover : ""}
               objectFit="cover"
             />
           )}
-          
         </Modal.Body>
-        
-      </Modal>    </>
+      </Modal>{" "}
+    </>
   );
 });
