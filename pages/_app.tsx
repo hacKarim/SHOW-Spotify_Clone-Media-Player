@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           >
             <Layout>
               <Head>
-                <title>Shotgun - Playlist</title>
+                <title>Shotgun Player</title>
                 <meta
                   name="viewport"
                   content="width=device-width, initial-scale=1.0"

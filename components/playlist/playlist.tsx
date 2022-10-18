@@ -34,7 +34,11 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
         </div>
       ) : (
         props.showOnlyFavorites && (
-          <Text blockquote>You didn't like any music</Text>
+          <Text blockquote>
+            {
+              "You didn't like any music yet. This is mostly disabled regarding gh-pages next export functionnality (aka export-gssp)."
+            }
+          </Text>
         )
       )}
       {playlist.tracks.map((element: any, index: any) =>
