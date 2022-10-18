@@ -13,12 +13,12 @@ However, after several headaches, i couldn't find a serious / efficient approach
 
 # Screenshots
 <p float="left">
-<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(1).png" width="500"/>
-<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(2).png" width="500"/>
+<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(1).png" width="400"/>
+<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(2).png" width="400"/>
 </p>
 <p float="left">
-<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/md/md%20(1).png" width="500"/>
-<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/md/md%20(2).png" width="500"/>
+<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/md/md%20(1).png" width="400"/>
+<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/md/md%20(2).png" width="400"/>
 </p>
 <p float="left">
 <img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/lg/lg%20(6).png" width="1000"/>
