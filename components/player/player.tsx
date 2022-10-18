@@ -55,7 +55,7 @@ export const Player = (props: any): ReactElement => {
             <div className={styles.flex_center}>
               <div
                 style={{
-                  right: 0,
+                  right: 10,
                   fontSize: "2em",
                   top: 5,
                   cursor: "pointer",

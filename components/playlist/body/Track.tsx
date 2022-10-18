@@ -98,7 +98,7 @@ export const Track = (props: any): ReactElement => {
         </div>
         <div className={styles.item_artists}>
           <Avatar.Group>
-            {props.track.track.artists.map((element, index) => (
+            {props.track.track.artists.map((element: any, index: any) => (
               <Avatar key={index} size="md" pointer text={element.name} />
             ))}
           </Avatar.Group>
