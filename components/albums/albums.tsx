@@ -1,7 +1,7 @@
 import { Grid, Modal } from '@nextui-org/react';
 import { ReactElement, useState } from 'react';
-import { Case } from './../albums/Case/Case';
 import MotionHoc from './../common/MotionHoc';
+import { Case } from './Case/Case';
 
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
