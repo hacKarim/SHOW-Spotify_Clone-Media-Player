@@ -40,6 +40,21 @@
     backdrop-filter: blur(100px);
 }
 
+.player_open_icon {
+    right: 10px;
+    font-size: 2em;
+    top: 5px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 999;
+    opacity: 0.5;
+
+}
+
+.player_open_icon:hover {
+    opacity: 1;
+}
+
 .player_open .infos, .player_open .cover_image, .player_open .cover_image img {
     max-width: unset;
     min-width: unset;
@@ -49,7 +64,7 @@
     height: unset;
 }
 
-.player_open .player__song_info, .player_open .infos {
+.player_open .song_info, .player_open .infos {
     display: block;
 }
 
@@ -124,7 +139,7 @@
         height: 100px;
     }
 
-    .player__song_info, .infos, .extra {
+    .song_info, .infos, .extra {
         display: none;
     }
 
@@ -143,7 +158,7 @@
     opacity: 0.2;
 }
 
-.player__song_info {
+.song_info {
     flex-grow: 1;
     text-align: center;
 }
@@ -155,7 +170,7 @@
     width: 100px;
 }
 
-.player__controls {
+.controls {
     width: 100%;
     margin: 0 auto;
     font-size: 2em;
@@ -166,4 +181,14 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
+}
+
+
+.play_button {
+    font-size: 2em;
+}
+
+.artists_names {
+    margin-right: 10;
+    font-weight: 300;
 }

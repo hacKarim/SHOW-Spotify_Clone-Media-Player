@@ -2,7 +2,7 @@ import { Progress, Text } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme as useNextTheme } from 'next-themes';
 import { ReactElement, useEffect, useState } from 'react';
-import { BsArrowDownSquare, BsArrowUpLeftSquare } from 'react-icons/bs';
+import { BsArrowDownSquare, BsArrowUpSquare } from 'react-icons/bs';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { usePlay } from './../../context/playerContext';
@@ -45,17 +45,8 @@ export const Player = (props: any): ReactElement => {
               }}
             ></div>
             <div className={styles.flex_center}>
-              <div
-                style={{
-                  right: 10,
-                  fontSize: '2em',
-                  top: 5,
-                  cursor: 'pointer',
-                  position: 'absolute',
-                  zIndex: 999
-                }}
-              >
-                <span onClick={() => setIsOpen(!isOpen)}>{isOpen ? <BsArrowDownSquare color={ui_color} /> : <BsArrowUpLeftSquare color={ui_color} />}</span>
+              <div className={styles.player_open_icon}>
+                <span onClick={() => setIsOpen(!isOpen)}>{isOpen ? <BsArrowDownSquare color={ui_color} /> : <BsArrowUpSquare color={ui_color} />}</span>
               </div>
               <div className={styles.player_container + (isOpen ? ' ' + styles.player_open : '')}>
                 <div className={styles.infos}>
@@ -71,24 +62,24 @@ export const Player = (props: any): ReactElement => {
                     color="success"
                     className={styles.progressbar}
                   />
-                  <div className={styles.player__song_info}>
-                    <p className={styles.track__title + ' ' + styles.overflow_ellipsis}>
+                  <div className={styles.song_info}>
+                    <p className={styles.title + ' ' + styles.overflow_ellipsis}>
                       <Text size="1.5em" weight="medium">
                         {song.name}
                         {' - '}
                         {song.artists.map((element, index) => (
-                          <span key={index} style={{ marginRight: 10, fontWeight: 300 }}>
+                          <span key={index} className={styles.artists_names}>
                             {element.name}
                           </span>
                         ))}
                       </Text>
                     </p>
                   </div>
-                  <div className={styles.player__controls}>
+                  <div className={styles.controls}>
                     <div onClick={() => previousSong()}>
                       <MdSkipPrevious color={ui_color} />
                     </div>
-                    <div onClick={() => setPlay(!play)} style={{ fontSize: '2em' }}>
+                    <div className={styles.play_button} onClick={() => setPlay(!play)}>
                       {play ? <FaPause color={ui_color} /> : <FaPlay color={ui_color} />}
                     </div>
                     <div onClick={() => !noSong && skipSong()}>

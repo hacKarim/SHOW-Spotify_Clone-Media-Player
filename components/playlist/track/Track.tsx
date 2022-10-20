@@ -82,9 +82,7 @@ export const Track = (props: any): ReactElement => {
           </Text>
           <Progress
             color="primary"
-            style={{
-              filter: 'saturate(0)  opacity(0.7)'
-            }}
+            className={styles.progress}
             value={props.track.popularity}
             size="xs"
             animated={isCurrentSong && play ? true : false}

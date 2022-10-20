@@ -12,7 +12,7 @@ export const Playlist = MotionHoc((props: any): ReactElement => {
     <>
       {props.showOnlyFavorites && props.favorites.favlist.length > 0 ? (
         <div className={styles.header}>
-          <div className={styles.image} style={{ width: 64 }}></div>
+          <div className={styles.image}></div>
           <div className={styles.title}>
             <Text h4>Title</Text>
           </div>
