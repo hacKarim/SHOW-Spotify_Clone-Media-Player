@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useTheme as useNextTheme } from 'next-themes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FiDisc, FiGithub, FiHeart, FiHome, FiList, FiMoon, FiSun, FiUser } from 'react-icons/fi';
+import { FiDisc, FiGithub, FiHeart, FiHome, FiList, FiMoon, FiMusic, FiSun, FiUser } from 'react-icons/fi';
 import { useFav } from './../../context/favoritesContext';
 import MotionHoc from './../common/MotionHoc';
 import Logo from './Logo';
@@ -60,7 +60,7 @@ const Sidebar = MotionHoc(() => {
             <SidebarItem title={'Albums'} icon={<FiDisc />} url={'/albums'}></SidebarItem>
             <SidebarItem title={'Playlists'} icon={<FiList />} url={'/playlists'}></SidebarItem>
             <SidebarItem title={'Artists'} icon={<FiUser />} url={'/artists'}></SidebarItem>
-            <SidebarItem title={'Songs'} icon={<FiHome />} url={'/songs'}></SidebarItem>
+            <SidebarItem title={'Songs'} icon={<FiMusic />} url={'/songs'}></SidebarItem>
           </ul>
           <ul className={styles.group}>
             <Text className={styles.header}>PREFERENCES</Text>
