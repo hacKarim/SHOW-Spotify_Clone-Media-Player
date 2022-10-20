@@ -1,9 +1,10 @@
 ﻿# Spotify-Clone-Media-Player
 
 <p float="left">
-<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(1).png" height="350"/>
-<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/lg/lg%20(6).png" height="350"/>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300&data=https://guelguin.github.io/Spotify-Clone-Media-Player " width="200"/>
+<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/lg/lg%20(6).png" height="320"/>
+
+<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(1).png" height="320"/>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300&data=https://guelguin.github.io/Spotify-Clone-Media-Player " height="150"/>
 </p>
 
 In this example, i'll try to make a better version of Shotgun technical case.
