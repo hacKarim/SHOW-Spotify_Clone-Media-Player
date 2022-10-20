@@ -9,6 +9,10 @@
 
 > https://guelguin.github.io/Spotify-Clone-Media-Player/
 
+## Comparison with old version
+
+> https://guelguin.github.io/shotgun_live_technical_case/
+
 ## 📄 Test description
 
 > https://shotguntheapp.notion.site/Case-Study-Spotify-Player-7f8417391b9e43ba9f351870949a0559
@@ -38,17 +42,17 @@ Lately, I came back to the initial challenge with the classic way. But with a cl
   - ~~Github Actions / Cypress / Detox
   - Vercel (serverless) / Heroku ]
   - ECMA or TS ? whatever, interperability is ok
-- Graphic lib (but with a minimal footprint)
+- Component lib (but with a minimal footprint)
 - Stay agnostic, unopinionated as much as possible
 
 ## 🎁 Expected outcome
 
-✅ Your project must be hosted on GitHub. (you can use the gh-pages to have a running version online or vercel)
-✅ Your project must contain a README that explains how to run it.
-If some user stories are not clear enough, you can take arbitrary decisions.
-If you don't have time to finish all the user stories, describe the way you'd do them.
-✅ Describe the edges you don't handle.
-✅ This project is a real use case at Shotgun, put the same attention to this project that you would in your real work.
+- ✅ Your project must be hosted on GitHub. (you can use the gh-pages to have a running version online or vercel)
+- ✅ Your project must contain a README that explains how to run it.
+- ✅ If some user stories are not clear enough, you can take arbitrary decisions.
+- ✅ If you don't have time to finish all the user stories, describe the way you'd do them.
+- ✅ Describe the edges you don't handle.
+- ✅ This project is a real use case at Shotgun, put the same attention to this project that you would in your real work.
 
 ## 📝 Local State management
 
@@ -64,7 +68,6 @@ Some elements are hidden in phone view to leave place to UX/UI clarity.
 ## 💃 Animations
 
 Animations are mostly done with:
-
 - CSS transitions
 - Framer Motion Animate Presence
 - CSS 3D transformations with transitions
