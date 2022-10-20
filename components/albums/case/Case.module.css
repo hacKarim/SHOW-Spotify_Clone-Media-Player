@@ -1,13 +1,8 @@
-.full-height,
-.container,
-.face {
+.full-height, .container, .face {
   height: 268px;
 }
 
-.full-width,
-.container,
-.face,
-.cover>* {
+.full-width, .container, .face, .cover>* {
   width: 268px;
   cursor: pointer;
 }
@@ -22,11 +17,10 @@
   transition: transform 0.5s ease;
 }
 
-
-
 .container:hover .disk {
   transform: rotateY(50deg)rotateX(10deg) rotateZ(-5deg) scale(1.1) translateY(-20px);
 }
+
 
 .face {
   position: absolute;
@@ -35,7 +29,6 @@
 
 .cover {
   transform: translateZ(10px);
-
 }
 
 .cover>.top {
@@ -63,7 +56,6 @@
   overflow: hidden;
   transform: rotateY(-90deg) translateZ(14px) translateY(2px);
   margin-top: -2px;
-
 }
 
 .side>.top {

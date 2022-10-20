@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import styles from '../styles/Page.module.css';
 
 import { PageHeader } from '../components/navigation/PageHeader';
-import { Playlist } from '../components/playlist/playlist';
+import { Playlist } from '../components/playlist/Playlist';
 import { fetchFavorites } from '../context/favoritesContext';
 import { fetchPlaylist } from '../helpers/fetchPlaylist';
 import { PlaylistData, Props } from '../helpers/types';

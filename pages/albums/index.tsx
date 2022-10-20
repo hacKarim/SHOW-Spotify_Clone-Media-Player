@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import { Albums } from '../../components/albums/albums';
+import { Albums } from '../../components/albums/Albums';
 import { PageHeader } from '../../components/navigation/PageHeader';
 import { fetchFavorites, useFav } from './../../context/favoritesContext';
 import { usePlay } from './../../context/playerContext';

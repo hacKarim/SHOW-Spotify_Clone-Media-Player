@@ -1,6 +1,6 @@
 import { Grid, Modal } from '@nextui-org/react';
 import { ReactElement, useState } from 'react';
-import { AlbumCase } from '../albums/case/case';
+import { Case } from '../albums/Case/Case';
 import MotionHoc from './../common/MotionHoc';
 
 export const Albums = MotionHoc((props: any): ReactElement => {
@@ -33,12 +33,19 @@ export const Albums = MotionHoc((props: any): ReactElement => {
       <Grid.Container gap={4} justify="flex-start">
         {tracks.map((track: any, index: number) => (
           <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index} onClick={() => handler(track)} style={{ justifyContent: 'center' }}>
-            <AlbumCase track={track} />
+            <Case track={track} />
           </Grid>
         ))}
       </Grid.Container>
-      <Modal closeButton blur width="fit-content" open={selectedAlbum != null ? true : false} onClose={closeHandler} noPadding style={{ paddingTop: 0 }}>
-        <Modal.Body style={{ maxWidth: '80vw', maxHeight: '80vh' }}>{selectedAlbum && <img src={selectedAlbum.cover} alt={selectedAlbum.album} />}</Modal.Body>
+      <Modal
+        blur
+        width="fit-content"
+        open={selectedAlbum != null ? true : false}
+        onClose={closeHandler}
+        noPadding
+        style={{ overflow: 'visible', paddingTop: 0, background: 'none', boxShadow: 'none' }}
+      >
+        <Case track={selectedAlbum} scaleUp />
       </Modal>
     </>
   );

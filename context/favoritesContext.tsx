@@ -36,7 +36,6 @@ type Props = {
 };
 
 export function initFavorites(playlist: PlaylistData): Favorites {
-  // var favList = tracks.map((e:any) => { e.id: false })
   var favorites: Favorites = { favlist: {}, totalLength: 0 };
   var i: number = 0;
 

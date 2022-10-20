@@ -93,9 +93,7 @@ export function PlayerProvider({ children }: Props) {
   };
 
   const skipSong = () => {
-    // Modulo is essential for going back to the other playlist end.
     var newIndex: number = (newIndex = (qIndex + 1 + queue.length) % queue.length);
-    // This is in case the next song is unavailable.
     while (!isAvailable(queue[newIndex])) {
       newIndex = (newIndex + 1 + queue.length) % queue.length;
     }
@@ -104,9 +102,7 @@ export function PlayerProvider({ children }: Props) {
   };
 
   const previousSong = () => {
-    // Modulo is essential for going back to the other playlist end.
     var newIndex: number = (newIndex = (qIndex - 1 + queue.length) % queue.length);
-    // This is in case the previous song is unavailable.
     while (!isAvailable(queue[newIndex])) {
       newIndex = (newIndex - 1 + queue.length) % queue.length;
     }
@@ -116,8 +112,6 @@ export function PlayerProvider({ children }: Props) {
 
   const initQueue = (newQueue: Track[]) => {
     setQueue(newQueue);
-    // If the player is initialized with a song, we need to recalculate
-    // its index for the best Skip / Previous behaviour.
     if (song.id != '') {
       var index: number = newQueue.findIndex((elt) => elt.id === song.id);
       if (index === -1) {

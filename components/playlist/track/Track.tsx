@@ -31,6 +31,29 @@ export const Track = (props: any): ReactElement => {
     setLiked(!liked);
   };
 
+  //this must be moved up in the hierarchy
+  const UnavailableModal = () => (
+    <Modal closeButton blur aria-labelledby="modal-title" open={visible} onClose={closeHandler}>
+      <Modal.Header>
+        <Text id="modal-title" size={18} weight={'bold'}>
+          Unavailable Song
+        </Text>
+      </Modal.Header>
+      <Modal.Body>
+        <Text>{"The track you're trying to listen to is unavailable in your current plan or country."}</Text>
+        <Text>Please upgrade to unlock all tracks.</Text>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button auto flat color="error" onClick={closeHandler}>
+          Close
+        </Button>
+        <Button auto onClick={() => window.open('https://www.spotify.com/fr/premium/#plans', '_blank')}>
+          Purchase premium
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
   return (
     <>
       <div className={isCurrentSong ? styles.row_current : props.track.preview_url ? styles.row : styles.row_disabled}>
@@ -95,26 +118,7 @@ export const Track = (props: any): ReactElement => {
           </Text>
         </div>
       </div>
-
-      <Modal closeButton blur aria-labelledby="modal-title" open={visible} onClose={closeHandler}>
-        <Modal.Header>
-          <Text id="modal-title" size={18} weight={'bold'}>
-            Unavailable Song
-          </Text>
-        </Modal.Header>
-        <Modal.Body>
-          <Text>{"The track you're trying to listen to is unavailable in your current plan or country."}</Text>
-          <Text>Please upgrade to unlock all tracks.</Text>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button auto flat color="error" onClick={closeHandler}>
-            Close
-          </Button>
-          <Button auto onClick={() => window.open('https://www.spotify.com/fr/premium/#plans', '_blank')}>
-            Purchase premium
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <UnavailableModal />
     </>
   );
 };

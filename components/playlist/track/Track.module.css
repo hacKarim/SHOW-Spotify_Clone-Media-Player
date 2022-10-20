@@ -23,7 +23,6 @@
   }
 }
 
-
 .row {
   align-content: center;
   align-items: center;
@@ -92,7 +91,6 @@
 .row_current .play_icon {
   opacity: 0.8;
   filter: drop-shadow(0px 0px 5px rgba(133, 133, 133, 0.489));
-
 }
 
 .row_current .cover_image img {

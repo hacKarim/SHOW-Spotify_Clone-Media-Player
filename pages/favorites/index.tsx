@@ -1,14 +1,14 @@
-import type { NextPage } from "next";
-import { useEffect } from "react";
+import type { NextPage } from 'next';
+import { useEffect } from 'react';
 
-import styles from "./../../styles/Page.module.css";
+import styles from './../../styles/Page.module.css';
 
-import { PageHeader } from "../../components/navigation/PageHeader";
-import { Playlist } from "./../../components/playlist/playlist";
-import { fetchFavorites, useFav } from "./../../context/favoritesContext";
-import { usePlay } from "./../../context/playerContext";
-import { fetchPlaylist } from "./../../helpers/fetchPlaylist";
-import { PlaylistData, Props } from "./../../helpers/types";
+import { PageHeader } from '../../components/navigation/PageHeader';
+import { Playlist } from './../../components/playlist/Playlist';
+import { fetchFavorites, useFav } from './../../context/favoritesContext';
+import { usePlay } from './../../context/playerContext';
+import { fetchPlaylist } from './../../helpers/fetchPlaylist';
+import { PlaylistData, Props } from './../../helpers/types';
 
 const Favorites: NextPage<Props> = (props: any) => {
   const { initQueue } = usePlay();
@@ -23,11 +23,7 @@ const Favorites: NextPage<Props> = (props: any) => {
     <div className={styles.container}>
       <PageHeader text="Favorites"></PageHeader>
 
-      <Playlist
-        playlist={props.playlist}
-        favorites={props.favorites}
-        showOnlyFavorites
-      ></Playlist>
+      <Playlist playlist={props.playlist} favorites={props.favorites} showOnlyFavorites></Playlist>
     </div>
   );
 };
@@ -39,8 +35,8 @@ export async function getStaticProps(context: any) {
   return {
     props: {
       playlist: playlistData,
-      favorites: favorites,
-    },
+      favorites: favorites
+    }
   };
 }
 
