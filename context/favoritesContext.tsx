@@ -1,6 +1,6 @@
-import nookies from "nookies";
-import { createContext, ReactNode, useContext, useState } from "react";
-import { Favorites, PlaylistData, Track } from "../helpers/types";
+import nookies from 'nookies';
+import { createContext, ReactNode, useContext, useState } from 'react';
+import { Favorites, PlaylistData, Track } from '../helpers/types';
 
 type favContextType = {
   fav: Favorites;
@@ -13,7 +13,7 @@ type favContextType = {
 
 const initFav: Favorites = {
   favlist: { init: { isFav: false, index: 0 } },
-  totalLength: 0,
+  totalLength: 0
 };
 
 const favContextDefaultValues: favContextType = {
@@ -22,7 +22,7 @@ const favContextDefaultValues: favContextType = {
   removeFav: () => {},
   isFav: () => false,
   setFav: () => {},
-  favNumber: 0,
+  favNumber: 0
 };
 
 const FavContext = createContext<favContextType>(favContextDefaultValues);
@@ -49,10 +49,7 @@ export function initFavorites(playlist: PlaylistData): Favorites {
   return favorites;
 }
 
-export function fetchFavorites(
-  context: any,
-  playlist: PlaylistData
-): Favorites {
+export function fetchFavorites(context: any, playlist: PlaylistData): Favorites {
   try {
     var favorites: Favorites = JSON.parse(nookies.get(context).favorites);
     return favorites;
@@ -63,7 +60,7 @@ export function fetchFavorites(
 
 export function writeFavorites(favorites: Favorites) {
   try {
-    nookies.set(null, "favorites", JSON.stringify(favorites), { path: "/" });
+    nookies.set(null, 'favorites', JSON.stringify(favorites), { path: '/' });
   } catch (e: any) {
     console.error("Can't write fav");
   }
@@ -102,7 +99,7 @@ export function FavProvider({ children }: Props) {
 
   const addFav = (track: Track) => {
     if (isFav(track)) {
-      console.error("Cannot Add Fav Twice");
+      console.error('Cannot Add Fav Twice');
       return false;
     }
     fav.favlist[track.id].isFav = true;
@@ -114,7 +111,7 @@ export function FavProvider({ children }: Props) {
 
   const removeFav = (track: Track) => {
     if (!isFav(track)) {
-      console.error("Cannot remove fav that is not already fav");
+      console.error('Cannot remove fav that is not already fav');
       return false;
     }
     fav.favlist[track.id].isFav = false;
@@ -134,7 +131,7 @@ export function FavProvider({ children }: Props) {
     isFav,
     setFav,
     handleFav,
-    favNumber,
+    favNumber
   };
 
   return <FavContext.Provider value={value}>{children}</FavContext.Provider>;

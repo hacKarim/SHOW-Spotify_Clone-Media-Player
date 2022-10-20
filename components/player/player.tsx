@@ -1,87 +1,65 @@
-import { Progress, Text } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
-import { useTheme as useNextTheme } from "next-themes";
-import { ReactElement, useEffect, useState } from "react";
-import { FaPause, FaPlay } from "react-icons/fa";
-import { usePlay } from "./../../context/playerContext";
-import styles from "./Player.module.css";
-
-import { BsArrowDownSquare, BsArrowUpLeftSquare } from "react-icons/bs";
-import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
+import { Progress, Text } from '@nextui-org/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useTheme as useNextTheme } from 'next-themes';
+import { ReactElement, useEffect, useState } from 'react';
+import { BsArrowDownSquare, BsArrowUpLeftSquare } from 'react-icons/bs';
+import { FaPause, FaPlay } from 'react-icons/fa';
+import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
+import { usePlay } from './../../context/playerContext';
+import styles from './Player.module.css';
 
 export const Player = (props: any): ReactElement => {
   const { song, setSong, play, setPlay, previousSong, skipSong } = usePlay();
   const [noSong, setNoSong] = useState<boolean>(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  const ui_color = useNextTheme().theme == "dark" ? "white" : "black";
+  const ui_color = useNextTheme().theme == 'dark' ? 'white' : 'black';
 
   useEffect(() => {
-    if (song.name != "") {
+    if (song.name != '') {
       setNoSong(false);
     }
   }, [song]);
 
-  if (song.id == "") {
+  if (song.id == '') {
     return <div></div>;
   }
 
   return (
     <>
       <AnimatePresence mode="wait">
-        <motion.div
-          key="player"
-          initial={{ y: 300, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeOut", duration: 0.2 }}
-          exit={{ y: -300, opacity: 0 }}
-        >
+        <motion.div key="player" initial={{ y: 300, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: 'easeOut', duration: 0.2 }} exit={{ y: -300, opacity: 0 }}>
           <motion.div
             key="poster_player"
-            animate={isOpen ? "open" : "closed"}
-            transition={{ ease: "easeOut", duration: 0.2 }}
+            animate={isOpen ? 'open' : 'closed'}
+            transition={{ ease: 'easeOut', duration: 0.2 }}
             variants={{
-              open: { height: "100vh" },
-              closed: { height: "unset" },
+              open: { height: '100vh' },
+              closed: { height: 'unset' }
             }}
           >
             <div
               className={styles.background}
               style={{
-                background: "url('" + song.album.images[0].url + "')",
+                background: "url('" + song.album.images[0].url + "')"
               }}
             ></div>
             <div className={styles.flex_center}>
               <div
                 style={{
                   right: 10,
-                  fontSize: "2em",
+                  fontSize: '2em',
                   top: 5,
-                  cursor: "pointer",
-                  position: "absolute",
-                  zIndex: 999,
+                  cursor: 'pointer',
+                  position: 'absolute',
+                  zIndex: 999
                 }}
               >
-                <span onClick={() => setIsOpen(!isOpen)}>
-                  {isOpen ? (
-                    <BsArrowDownSquare color={ui_color} />
-                  ) : (
-                    <BsArrowUpLeftSquare color={ui_color} />
-                  )}
-                </span>
+                <span onClick={() => setIsOpen(!isOpen)}>{isOpen ? <BsArrowDownSquare color={ui_color} /> : <BsArrowUpLeftSquare color={ui_color} />}</span>
               </div>
-              <div
-                className={
-                  styles.player_container +
-                  (isOpen ? " " + styles.player_open : "")
-                }
-              >
+              <div className={styles.player_container + (isOpen ? ' ' + styles.player_open : '')}>
                 <div className={styles.infos}>
-                  <img
-                    className={styles.cover_image}
-                    src={song.album.images[0].url}
-                    alt={song.album.name}
-                  />
+                  <img className={styles.cover_image} src={song.album.images[0].url} alt={song.album.name} />
                 </div>
                 <div className={styles.controller}>
                   <Progress
@@ -94,19 +72,12 @@ export const Player = (props: any): ReactElement => {
                     className={styles.progressbar}
                   />
                   <div className={styles.player__song_info}>
-                    <p
-                      className={
-                        styles.track__title + " " + styles.overflow_ellipsis
-                      }
-                    >
+                    <p className={styles.track__title + ' ' + styles.overflow_ellipsis}>
                       <Text size="1.5em" weight="medium">
                         {song.name}
-                        {" - "}
+                        {' - '}
                         {song.artists.map((element, index) => (
-                          <span
-                            key={index}
-                            style={{ marginRight: 10, fontWeight: 300 }}
-                          >
+                          <span key={index} style={{ marginRight: 10, fontWeight: 300 }}>
                             {element.name}
                           </span>
                         ))}
@@ -117,15 +88,8 @@ export const Player = (props: any): ReactElement => {
                     <div onClick={() => previousSong()}>
                       <MdSkipPrevious color={ui_color} />
                     </div>
-                    <div
-                      onClick={() => setPlay(!play)}
-                      style={{ fontSize: "2em" }}
-                    >
-                      {play ? (
-                        <FaPause color={ui_color} />
-                      ) : (
-                        <FaPlay color={ui_color} />
-                      )}
+                    <div onClick={() => setPlay(!play)} style={{ fontSize: '2em' }}>
+                      {play ? <FaPause color={ui_color} /> : <FaPlay color={ui_color} />}
                     </div>
                     <div onClick={() => !noSong && skipSong()}>
                       <MdSkipNext color={ui_color} />

@@ -1,14 +1,12 @@
-import type { NextPage } from "next";
-import { useEffect } from "react";
-
-import styles from "./../../styles/Home.module.css";
-
-import { Artists } from "../../components/artists/artists";
-import { PageHeader } from "../../components/navigation/PageHeader";
-import { fetchFavorites, useFav } from "./../../context/favoritesContext";
-import { usePlay } from "./../../context/playerContext";
-import { fetchPlaylist } from "./../../helpers/fetchPlaylist";
-import { PlaylistData, Props } from "./../../helpers/types";
+import type { NextPage } from 'next';
+import { useEffect } from 'react';
+import { Artists } from '../../components/artists/artists';
+import { PageHeader } from '../../components/navigation/PageHeader';
+import { fetchFavorites, useFav } from './../../context/favoritesContext';
+import { usePlay } from './../../context/playerContext';
+import { fetchPlaylist } from './../../helpers/fetchPlaylist';
+import { PlaylistData, Props } from './../../helpers/types';
+import styles from './../../styles/Page.module.css';
 
 const ArtistsPage: NextPage<Props> = (props: any) => {
   const { initQueue } = usePlay();
@@ -35,8 +33,8 @@ export async function getStaticProps(context: any) {
   return {
     props: {
       playlist: playlistData,
-      favorites: favorites,
-    },
+      favorites: favorites
+    }
   };
 }
 

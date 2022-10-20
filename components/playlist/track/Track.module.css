@@ -1,3 +1,29 @@
+@media screen and (max-width: 800px) {
+
+  .artists,
+  .duration,
+  .album,
+  .header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .artists,
+  .duration,
+  .header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .duration {
+    display: none;
+  }
+}
+
+
 .row {
   align-content: center;
   align-items: center;
@@ -10,7 +36,24 @@
   justify-content: center;
   justify-content: space-between;
   width: 100%;
+  margin: 5px 0;
 }
+
+.row_disabled {
+  align-content: center;
+  align-items: center;
+  color: grey !important;
+  cursor: not-allowed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  opacity: 0.5;
+  width: 100%;
+  margin: 5px 0;
+}
+
 
 .row_current {
   align-content: center;
@@ -26,6 +69,8 @@
   justify-content: space-between;
   opacity: 1;
   width: 100%;
+  margin: 5px 0;
+
 }
 
 .header {
@@ -46,7 +91,7 @@
 
 .row_current .play_icon {
   opacity: 0.8;
-  filter: drop-shadow(0px 0px 5px black);
+  filter: drop-shadow(0px 0px 5px rgba(133, 133, 133, 0.489));
 
 }
 
@@ -59,19 +104,6 @@
   opacity: 1;
 }
 
-.row_disabled {
-  align-content: center;
-  align-items: center;
-  color: grey !important;
-  cursor: not-allowed;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: space-between;
-  opacity: 0.5;
-  width: 100%;
-}
 
 .title {
   flex: 1 0 15%;
@@ -105,8 +137,10 @@
 
 .fav {
   max-width: 200px;
-  margin: 5px;
+  margin: 0px;
+  margin-top: 10px;
   text-overflow: ellipsis;
+  padding: 10px;
 }
 
 .duration {
@@ -139,7 +173,7 @@
 
 .row:hover .play_icon {
   opacity: 1;
-  filter: drop-shadow(0px 0px 5px black);
+  filter: drop-shadow(0px 0px 5px rgba(133, 133, 133, 0.489));
 }
 
 .heart {
@@ -161,31 +195,6 @@
 
 .heart:hover {
   opacity: 1;
-}
-
-@media screen and (max-width: 800px) {
-
-  .artists,
-  .duration,
-  .album,
-  .header {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 900px) {
-
-  .artists,
-  .duration,
-  .header {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .duration {
-    display: none;
-  }
 }
 
 .artists>div {

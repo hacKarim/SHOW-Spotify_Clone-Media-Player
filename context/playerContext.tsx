@@ -1,24 +1,17 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { Track } from "../types/types";
+import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
+import { Track } from '../types/types';
 
 const initialSong: Track = {
-  name: "",
-  id: "",
-  preview_url: "",
+  name: '',
+  id: '',
+  preview_url: '',
   artists: [],
   duration_ms: 0,
   album: {
-    id: "",
-    name: "",
-    images: [],
-  },
+    id: '',
+    name: '',
+    images: []
+  }
 };
 
 export const initialVolume: number = 0.5;
@@ -49,12 +42,10 @@ const playerContextDefaultValues: playerContextType = {
   setSong: () => {},
   skipSong: () => {},
   previousSong: () => {},
-  initQueue: () => {},
+  initQueue: () => {}
 };
 
-const PlayerContext = createContext<playerContextType>(
-  playerContextDefaultValues
-);
+const PlayerContext = createContext<playerContextType>(playerContextDefaultValues);
 
 export function usePlay() {
   return useContext(PlayerContext);
@@ -88,11 +79,7 @@ export function PlayerProvider({ children }: Props) {
   const [qIndex, setQIndex] = useState<number>(0);
 
   const [song, handleSong] = useState<Track>(initialSong);
-  const setSong = (
-    newSong: Track,
-    playInstant: boolean = false,
-    index?: number
-  ) => {
+  const setSong = (newSong: Track, playInstant: boolean = false, index?: number) => {
     if (index == null) {
       index = queue.findIndex((elt) => elt.id === newSong.id);
     }
@@ -107,8 +94,7 @@ export function PlayerProvider({ children }: Props) {
 
   const skipSong = () => {
     // Modulo is essential for going back to the other playlist end.
-    var newIndex: number = (newIndex =
-      (qIndex + 1 + queue.length) % queue.length);
+    var newIndex: number = (newIndex = (qIndex + 1 + queue.length) % queue.length);
     // This is in case the next song is unavailable.
     while (!isAvailable(queue[newIndex])) {
       newIndex = (newIndex + 1 + queue.length) % queue.length;
@@ -119,8 +105,7 @@ export function PlayerProvider({ children }: Props) {
 
   const previousSong = () => {
     // Modulo is essential for going back to the other playlist end.
-    var newIndex: number = (newIndex =
-      (qIndex - 1 + queue.length) % queue.length);
+    var newIndex: number = (newIndex = (qIndex - 1 + queue.length) % queue.length);
     // This is in case the previous song is unavailable.
     while (!isAvailable(queue[newIndex])) {
       newIndex = (newIndex - 1 + queue.length) % queue.length;
@@ -133,7 +118,7 @@ export function PlayerProvider({ children }: Props) {
     setQueue(newQueue);
     // If the player is initialized with a song, we need to recalculate
     // its index for the best Skip / Previous behaviour.
-    if (song.id != "") {
+    if (song.id != '') {
       var index: number = newQueue.findIndex((elt) => elt.id === song.id);
       if (index === -1) {
         index = 0;
@@ -149,7 +134,7 @@ export function PlayerProvider({ children }: Props) {
       await refPlayer.current.play();
     } catch (e: any) {
       refPlayer.current.pause();
-      console.log("error while trying to play song: ", e);
+      console.log('error while trying to play song: ', e);
       setPlay(false);
     }
   };
@@ -192,17 +177,12 @@ export function PlayerProvider({ children }: Props) {
     setSong,
     skipSong,
     previousSong,
-    initQueue,
+    initQueue
   };
 
   return (
     <PlayerContext.Provider value={value}>
-      <audio
-        ref={refPlayer}
-        onEnded={() => skipSong()}
-        autoPlay
-        src={song.preview_url}
-      ></audio>
+      <audio ref={refPlayer} onEnded={() => skipSong()} autoPlay src={song.preview_url}></audio>
       {children}
     </PlayerContext.Provider>
   );

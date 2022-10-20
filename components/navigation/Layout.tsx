@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { ReactNode } from "react";
-import styles from "./Layout.module.css";
-import { Player } from "./../player/player";
-import Sidebar from "./../navigation/Sidebar";
+import Head from 'next/head';
+import { ReactNode } from 'react';
+import Sidebar from './../navigation/Sidebar';
+import { Player } from './../player/player';
+import styles from './Layout.module.css';
 
 type Props = {
   children: ReactNode;

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
 
-import styles from "./../../styles/Home.module.css";
+import styles from "./../../styles/Page.module.css";
 
 import { PageHeader } from "../../components/navigation/PageHeader";
 import { Playlist } from "./../../components/playlist/playlist";

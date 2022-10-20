@@ -1,7 +1,7 @@
-import { Grid, Image, Modal } from "@nextui-org/react";
-import { ReactElement, useState } from "react";
-import { AlbumCase } from "../albums/case/case";
-import MotionHoc from "./../common/MotionHoc";
+import { Grid, Modal } from '@nextui-org/react';
+import { ReactElement, useState } from 'react';
+import { AlbumCase } from '../albums/case/case';
+import MotionHoc from './../common/MotionHoc';
 
 export const Albums = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);
@@ -23,7 +23,7 @@ export const Albums = MotionHoc((props: any): ReactElement => {
       artist: element.track.artists[0].name,
       album: element.track.album.name,
       cover: element.track.album.images[0].url,
-      previewUrl: element.track.preview_url,
+      previewUrl: element.track.preview_url
     };
     return temp;
   });
@@ -32,38 +32,13 @@ export const Albums = MotionHoc((props: any): ReactElement => {
     <>
       <Grid.Container gap={4} justify="flex-start">
         {tracks.map((track: any, index: number) => (
-          <Grid
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            xl={2}
-            key={index}
-            onClick={() => handler(track)}
-            style={{ justifyContent: "center" }}
-          >
+          <Grid xs={12} sm={6} md={4} lg={3} xl={2} key={index} onClick={() => handler(track)} style={{ justifyContent: 'center' }}>
             <AlbumCase track={track} />
           </Grid>
         ))}
       </Grid.Container>
-      <Modal
-        closeButton
-        blur
-        width="fit-content"
-        open={selectedAlbum != null ? true : false}
-        onClose={closeHandler}
-        noPadding
-        style={{ paddingTop: 0 }}
-      >
-        <Modal.Body style={{ maxWidth: "80vw", maxHeight: "80vh" }}>
-          {selectedAlbum && (
-            <img
-              src={selectedAlbum.cover}
-              // objectFit="cover"
-              alt={selectedAlbum.album}
-            />
-          )}
-        </Modal.Body>
+      <Modal closeButton blur width="fit-content" open={selectedAlbum != null ? true : false} onClose={closeHandler} noPadding style={{ paddingTop: 0 }}>
+        <Modal.Body style={{ maxWidth: '80vw', maxHeight: '80vh' }}>{selectedAlbum && <img src={selectedAlbum.cover} alt={selectedAlbum.album} />}</Modal.Body>
       </Modal>
     </>
   );

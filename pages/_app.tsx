@@ -1,12 +1,12 @@
-import { createTheme, NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import type { AppProps } from "next/app";
-import Layout from "../components/navigation/Layout";
-import "../styles/globals.css";
+import { createTheme, NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import type { AppProps } from 'next/app';
+import Layout from '../components/navigation/Layout';
+import '../styles/globals.css';
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { FavProvider } from "../context/favoritesContext";
-import { PlayerProvider } from "../context/playerContext";
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { FavProvider } from '../context/favoritesContext';
+import { PlayerProvider } from '../context/playerContext';
 
 const disableselect = (e: any) => {
   return false;
@@ -14,20 +14,15 @@ const disableselect = (e: any) => {
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "https://spotify-graphql.shotgun.live/api",
+  uri: 'https://spotify-graphql.shotgun.live/api'
   // ssrMode: typeof window === 'undefined',
 });
 
-const lightTheme = createTheme({
-  type: "light",
-});
-
-const darkTheme = createTheme({
-  type: "dark",
-});
+const lightTheme = createTheme({ type: 'light' });
+const darkTheme = createTheme({ type: 'dark' });
 
 // used to disable text selection during user interaction
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   document.onselectstart = disableselect;
   document.onmousedown = disableselect;
 }
@@ -42,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             attribute="class"
             value={{
               light: lightTheme.className,
-              dark: darkTheme.className,
+              dark: darkTheme.className
             }}
           >
             <Layout>

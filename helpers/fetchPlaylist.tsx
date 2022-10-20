@@ -1,11 +1,11 @@
-import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
-import { PlaylistData } from "./types";
+import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
+import { PlaylistData } from './types';
 
 export async function fetchPlaylist(): Promise<PlaylistData> {
   try {
     const client = new ApolloClient({
-      uri: "https://spotify-graphql.shotgun.live/api",
-      cache: new InMemoryCache(),
+      uri: 'https://spotify-graphql.shotgun.live/api',
+      cache: new InMemoryCache()
     });
 
     const { data } = await client.query({
@@ -42,12 +42,12 @@ export async function fetchPlaylist(): Promise<PlaylistData> {
             }
           }
         }
-      `,
+      `
     });
 
     return data.playlist;
   } catch (e: any) {
-    console.error("Could not retrieve graphQL data: ", e);
+    console.error('Could not retrieve graphQL data: ', e);
     return Promise.reject();
   }
 }
