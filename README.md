@@ -1,17 +1,16 @@
 ﻿# Spotify-Clone-Media-Player
 
 <p float="left">
-<img style="display:inline" src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/sm/sm%20(1).png" height="350"/>
-<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/lg/lg%20(6).png" height="350"/>
+<img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/mockup.jpg"/>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=300&data=https://guelguin.github.io/Spotify-Clone-Media-Player " width="200"/>
 </p>
 
-In this example, i'll try to make a better version of Shotgun technical case.
-
 ## ▶️ Demo
+
 > https://guelguin.github.io/Spotify-Clone-Media-Player/
 
 ## 📄 Test description
+
 > https://shotguntheapp.notion.site/Case-Study-Spotify-Player-7f8417391b9e43ba9f351870949a0559
 
 ## ‍💻 Advancement
