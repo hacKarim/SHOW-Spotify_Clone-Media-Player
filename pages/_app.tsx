@@ -5,6 +5,7 @@ import Layout from '../components/navigation/Layout';
 import '../styles/globals.css';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { useEffect } from 'react';
 import { FavProvider } from '../context/favoritesContext';
 import { PlayerProvider } from '../context/playerContext';
 
@@ -21,13 +22,18 @@ const client = new ApolloClient({
 const lightTheme = createTheme({ type: 'light' });
 const darkTheme = createTheme({ type: 'dark' });
 
-// used to disable text selection during user interaction
-if (typeof window !== 'undefined') {
-  document.onselectstart = disableselect;
-  document.onmousedown = disableselect;
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // used to disable text selection during user interaction
+      document.onselectstart = disableselect;
+      document.onmousedown = disableselect;
+      //used for the loader
+      const loader = document.getElementById('app_loader');
+      if (loader) loader.style.display = 'none';
+    }
+  }, []);
+
   return (
     <ApolloProvider client={client}>
       <PlayerProvider>
