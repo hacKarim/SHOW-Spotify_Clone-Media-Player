@@ -1,15 +1,14 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
 
-import styles from '../styles/Page.module.css';
+import styles from './../styles/Page.module.css';
 
-import { PageHeader } from '../components/navigation/PageHeader';
-import { Playlist } from '../components/playlist/Playlist';
-import { fetchFavorites } from '../context/favoritesContext';
-import { fetchPlaylist } from '../helpers/fetchPlaylist';
-import { PlaylistData, Props } from '../helpers/types';
-import { useFav } from './../context/favoritesContext';
+import { PageHeader } from './../components/navigation/PageHeader';
+import { Playlist } from './../components/playlist/Playlist';
+import { fetchFavorites, useFav } from './../context/favoritesContext';
 import { usePlay } from './../context/playerContext';
+import { fetchPlaylist } from './../helpers/fetchPlaylist';
+import { PlaylistData, Props } from './../helpers/types';
 
 const Home: NextPage<Props> = (props: any) => {
   const { initQueue } = usePlay();

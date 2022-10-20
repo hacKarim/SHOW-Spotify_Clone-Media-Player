@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import styles from './../../styles/Page.module.css';
 
-import { PageHeader } from '../../components/navigation/PageHeader';
+import { PageHeader } from './../../components/navigation/PageHeader';
 import { Playlist } from './../../components/playlist/Playlist';
 import { fetchFavorites, useFav } from './../../context/favoritesContext';
 import { usePlay } from './../../context/playerContext';

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { useEffect } from 'react';
-import { Artists } from '../../components/artists/Artists';
-import { PageHeader } from '../../components/navigation/PageHeader';
+import { Artists } from './../../components/artists/Artists';
+import { PageHeader } from './../../components/navigation/PageHeader';
 import { fetchFavorites, useFav } from './../../context/favoritesContext';
 import { usePlay } from './../../context/playerContext';
 import { fetchPlaylist } from './../../helpers/fetchPlaylist';

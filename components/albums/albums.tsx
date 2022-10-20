@@ -1,6 +1,6 @@
 import { Grid, Modal } from '@nextui-org/react';
 import { ReactElement, useState } from 'react';
-import { Case } from '../albums/Case/Case';
+import { Case } from './../albums/Case/Case';
 import MotionHoc from './../common/MotionHoc';
 
 export const Albums = MotionHoc((props: any): ReactElement => {

@@ -1,6 +1,6 @@
 import nookies from 'nookies';
 import { createContext, ReactNode, useContext, useState } from 'react';
-import { Favorites, PlaylistData, Track } from '../helpers/types';
+import { Favorites, PlaylistData, Track } from './../helpers/types';
 
 type favContextType = {
   fav: Favorites;

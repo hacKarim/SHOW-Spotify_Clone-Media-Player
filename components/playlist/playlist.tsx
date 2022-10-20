@@ -2,8 +2,8 @@ import { Text } from '@nextui-org/react';
 import { ReactElement, useState } from 'react';
 import { FiHeart } from 'react-icons/fi';
 import MotionHoc from './../common/MotionHoc';
-import { Track } from './track/Track';
-import styles from './track/Track.module.css';
+import { Track } from './Track/Track';
+import styles from './Track/Track.module.css';
 
 export const Playlist = MotionHoc((props: any): ReactElement => {
   const [playlist, setPlaylist] = useState(props.playlist);

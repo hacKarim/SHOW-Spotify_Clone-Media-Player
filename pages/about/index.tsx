@@ -1,8 +1,8 @@
 import { Text } from '@nextui-org/react';
 import type { NextPage } from 'next';
 import Link from 'next/link';
-import { PageHeader } from '../../components/navigation/PageHeader';
-import styles from '../../styles/Page.module.css';
+import { PageHeader } from './../../components/navigation/PageHeader';
+import styles from './../../styles/Page.module.css';
 
 const About: NextPage = () => {
   return (

@@ -1,13 +1,13 @@
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
-import Layout from '../components/navigation/Layout';
-import '../styles/globals.css';
+import Layout from './../components/navigation/Layout';
+import './../styles/globals.css';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { useEffect } from 'react';
-import { FavProvider } from '../context/favoritesContext';
-import { PlayerProvider } from '../context/playerContext';
+import { FavProvider } from './../context/favoritesContext';
+import { PlayerProvider } from './../context/playerContext';
 
 const disableselect = (e: any) => {
   return false;

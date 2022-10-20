@@ -1,6 +1,6 @@
 import { Text } from '@nextui-org/react';
 import { ReactElement } from 'react';
-import MotionHoc from '../common/MotionHoc';
+import MotionHoc from './../common/MotionHoc';
 
 export const PageHeader = MotionHoc((props: any): ReactElement => {
   return (

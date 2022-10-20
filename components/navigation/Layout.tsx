@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import Sidebar from './../navigation/Sidebar';
-import { Player } from './../player/player';
+import { Player } from './../player/Player';
 import styles from './Layout.module.css';
 
 type Props = {
