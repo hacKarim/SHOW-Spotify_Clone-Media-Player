@@ -68,6 +68,7 @@ Some elements are hidden in phone view to leave place to UX/UI clarity.
 ## 💃 Animations
 
 Animations are mostly done with:
+
 - CSS transitions
 - Framer Motion Animate Presence
 - CSS 3D transformations with transitions
@@ -81,6 +82,7 @@ Some songs are grayed out because they do not feature a preview_url.
 ## 🤔 What could have been better ?
 
 Organising the CSS is one effort to be done in this project. Although the stylesheets are organised by component, the class naming can take another run
+BLM seems a nice approache for achieving that.
 
 Saving the favorites in cookies is not working using gh-pages for the moment, because of the static nature of gh-pages. It is working on other servers.
 

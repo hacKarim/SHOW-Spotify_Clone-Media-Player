@@ -72,7 +72,6 @@ export const Track = (props: any): ReactElement => {
           >
             <div className={styles.cover_image} onClick={() => props.track.preview_url && PlayButtonBehavior()}>
               {!isCurrentSong ? <FaPlay className={styles.play_icon}></FaPlay> : play ? <FaPause className={styles.play_icon}></FaPause> : <FaPlay className={styles.play_icon}></FaPlay>}
-
               <img src={props.track.album.images[2].url} alt={props.track.album.name} />
             </div>
           </Badge>
