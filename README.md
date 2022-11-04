@@ -7,7 +7,7 @@
 
 ## ▶️ Demo
 
-> https://guelguin.github.io/Spotify-Clone-Media-Player/
+> https://guelguin.github.io/SHOW-Spotify_Clone-Media-Player/
 
 ## Comparison with old version
 
