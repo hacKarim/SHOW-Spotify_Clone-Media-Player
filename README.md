@@ -2,7 +2,7 @@
 
 <p float="left">
 <img src="https://raw.githubusercontent.com/Guelguin/Spotify-Clone-Media-Player/main/screenshots/mockup.jpg"/>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300&data=https://guelguin.github.io/Spotify-Clone-Media-Player " width="200"/>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300&data=https://guelguin.github.io/SHOW-Spotify_Clone-Media-Player/" width="200"/>
 </p>
 
 ## ▶️ Demo
