@@ -11,7 +11,7 @@
 
 ## Comparison with old version
 
-> https://guelguin.github.io/shotgun_live_technical_case/
+> https://guelguin.github.io/shotgun_live_technical_case/ 
 
 ## 📄 Test description
 
